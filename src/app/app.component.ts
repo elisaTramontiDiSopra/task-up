@@ -7,4 +7,10 @@ import '../style/global.sass';
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent {
+  //animation settings
+  toState = 'state1';
+
+  changeState(state: any) {
+    this.toState = state;
+  }
 }

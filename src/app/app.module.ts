@@ -18,12 +18,14 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ComponentsComponent } from './views/components/components.component';
+import { CalendarComponent } from './views/calendar/calendar.component';
 
 // C0MPONENTS
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading-spinner/loading.component';
 import { TreeStructureComponent } from './components/tree-structure/tree-structure.component';
+import { AnimateComponent } from './components/animate/animate.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
@@ -34,11 +36,13 @@ import { LoadingService } from './services/loading.service';
     HomeComponent,
     LoginComponent,
     ComponentsComponent,
+    CalendarComponent,
 
     HeaderComponent,
     FooterComponent,
     LoadingComponent,
-    TreeStructureComponent
+    TreeStructureComponent,
+    AnimateComponent
   ],
   imports: [
     BrowserModule,
