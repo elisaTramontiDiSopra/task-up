@@ -1,0 +1,22 @@
+@import ~style/variables
+@import ~style/bootstrap
+@import ~ladda/dist/ladda.min.css
+@import '~ngx-toastr/toastr.css';
+
+html
+  font-size: 16px !important
+  @include media-breakpoint-down(sm)
+    font-size: 14px !important
+
+  @include media-breakpoint-down(xs)
+    font-size: 12px !important
+
+// toaster positioning class
+.toast-center
+  top: 20px
+  right: 0
+  width: 100%
+  .toast
+    width: 300px !important
+    margin-left: auto !important
+    margin-right: auto !important
