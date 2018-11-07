@@ -1,0 +1,5 @@
+<div *ngFor="let step of steps" class="main-step row">
+  <div class="col"> {{step.name}}
+    <tree-structure [steps]="step.steps" *ngIf="step.steps"></tree-structure>
+  </div>
+</div>

@@ -23,6 +23,7 @@ import { ComponentsComponent } from './views/components/components.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading-spinner/loading.component';
+import { TreeStructureComponent } from './components/tree-structure/tree-structure.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
@@ -36,7 +37,8 @@ import { LoadingService } from './services/loading.service';
 
     HeaderComponent,
     FooterComponent,
-    LoadingComponent
+    LoadingComponent,
+    TreeStructureComponent
   ],
   imports: [
     BrowserModule,
