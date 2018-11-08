@@ -1,5 +1,24 @@
-<div *ngFor="let step of steps" class="main-step row">
-  <div class="col"> {{step.name}}
-    <tree-structure [steps]="step.steps" *ngIf="step.steps"></tree-structure>
+<div class="row">
+  <div class="main-task d-flex justify-content-center align-items-center rounded-circle" *ngFor="let task of steps; index as i;"
+    [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
+    [class.undone]="task.selected === false && i > 0"
+    [@openClose]=""
+    (click)="selectThisStep(task, i)"
+  >
+    {{task.name}}
+    <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps"></tree-structure>
   </div>
 </div>
+
+
+<!-- <div class="row m0 p0" *ngFor="let task of steps">
+  <div [ngClass]="{'col' : task.steps}">
+    <div class="main-task d-flex justify-content-center align-items-center rounded-circle" *ngFor="let task of steps"
+      [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}">
+      {{task.name}}
+      <div class="col" *ngIf="task.steps">
+        <tree-structure [day]="day" [steps]="task.steps"></tree-structure>
+      </div>
+    </div>
+  </div>
+</div> -->

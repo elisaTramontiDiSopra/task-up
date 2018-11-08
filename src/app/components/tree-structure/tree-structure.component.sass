@@ -1,1 +1,20 @@
 @import ~style/variables
+
+$taskWidth: 100px
+
+.mon
+  border-color: $monColor
+.tue
+  border-color: $tueColor
+
+.main-task
+  width: $taskWidth
+  height: $taskWidth
+  border-width: 3px
+  border-style: solid
+  margin-right: 25px
+
+.undone
+  border-color: #989898
+  -webkit-filter: grayscale(100%) // Safari 6.0 - 9.0
+  filter: grayscale(100%)
