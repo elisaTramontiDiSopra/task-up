@@ -1,24 +1,18 @@
-<div class="row">
-  <div class="main-task d-flex justify-content-center align-items-center rounded-circle" *ngFor="let task of steps; index as i;"
-    [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
-    [class.undone]="task.selected === false && i > 0"
-    [@openClose]=""
-    (click)="selectThisStep(task, i)"
-  >
-    {{task.name}}
-    <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps"></tree-structure>
-  </div>
-</div>
-
-
-<!-- <div class="row m0 p0" *ngFor="let task of steps">
-  <div [ngClass]="{'col' : task.steps}">
-    <div class="main-task d-flex justify-content-center align-items-center rounded-circle" *ngFor="let task of steps"
-      [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}">
+<div
+  [ngClass]="{'row': direction === 'horiz', 'nothing': direction === 'vert'}"
+  [@slideInDown]="steps.lenght">
+  <div class="task-col" *ngFor="let task of steps; index as i;">
+    <div class="main-task d-flex justify-content-center align-items-center rounded-circle"
+      [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
+      [ngClass]="{'task-col': task.steps}"
+      [class.undone]="task.selected === false && i > 0"
+      (click)="selectThisStep(task, i)">
       {{task.name}}
-      <div class="col" *ngIf="task.steps">
-        <tree-structure [day]="day" [steps]="task.steps"></tree-structure>
-      </div>
+      <div class="done"></div>
+      <div class="skip"></div>
+    </div>
+    <div *ngIf="task.stepsVisible === true">
+      <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps" direction="horOrVert()"></tree-structure>
     </div>
   </div>
-</div> -->
+</div>

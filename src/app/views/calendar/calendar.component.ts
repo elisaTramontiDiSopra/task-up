@@ -11,58 +11,34 @@ export class CalendarComponent {
     {
       name: "School",
       img: "image",
-      done: true,
+      done: false,
       selected: false,
-      /* steps: [
+      steps: [
+        {
+          name: "Bus stop",
+          img: "image",
+          done: false,
+        },
         {
           name: "Bus",
-          img: "image", */
-          /* steps: [
+          img: "image",
+          done: false,
+          steps: [
             {
               name: "Go to the stop",
               img: "image",
             },
             {
-              name: "Wait 4 stops",
+              name: "Wait 4 bus",
               img: "image",
-            },
-            {
-              name: "Enter school",
-              img: "image",
-              steps: [
-                {
-                  name: "Math",
-                  img: "image",
-                  steps: [
-                    {
-                      name: "Grab the book",
-                      img: "image",
-                    },
-                    {
-                      name: "Go to room 102",
-                      img: "image",
-                    },
-                  ],
-                },
-                {
-                  name: "Eng",
-                  img: "image",
-                  steps: [
-                    {
-                      name: "Grab the book",
-                      img: "image",
-                    },
-                    {
-                      name: "Go to room 423",
-                      img: "image",
-                    },
-                  ],
-                }
-              ],
             }
-          ], */
-     /*    }
-      ], */
+          ],
+        },
+        {
+          name: "Sit on bus",
+          img: "image",
+        },
+      ],
     },
     {
       name: "step 2",

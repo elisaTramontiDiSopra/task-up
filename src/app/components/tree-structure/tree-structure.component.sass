@@ -12,9 +12,16 @@ $taskWidth: 100px
   height: $taskWidth
   border-width: 3px
   border-style: solid
-  margin-right: 25px
+  background-color: #ccc
+  margin: 20px 45px 0 0
+
+.task-col
+    flex-direction: column
+    margin-right: 45px
+    width: $taskWidth
 
 .undone
   border-color: #989898
+  opacity: 0.5
   -webkit-filter: grayscale(100%) // Safari 6.0 - 9.0
   filter: grayscale(100%)
