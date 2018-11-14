@@ -14,15 +14,17 @@
     <button class="subtask rounded-circle" *ngIf="task.steps"
       [disabled]="task.done === true"
       (click)="done(task, i)"
-      ><i class="fas fa-stroopwafel"></i>S</button>
+      ><fa-icon [icon]="['fas', 'arrow-down']"></fa-icon></button>
     <button class="done rounded-circle" *ngIf="task.skipped === false && !task.steps"
       [disabled]="task.done === true"
+      [class.undone]="i > 0 && steps[i-1].done === false"
       (click)="done(task, i)"
-      ><i class="fas fa-stroopwafel"></i>D</button>
+      ><fa-icon [icon]="['fas', 'check']"></fa-icon></button>
     <button class="skip rounded-circle" *ngIf="task.done === false && !task.steps"
       [disabled]="task.skipped === true"
+      [class.undone]="i > 0 && steps[i-1].done === false"
       (click)="skipped()"
-      ><i class="fas fa-times"></i>S</button>
+      ><fa-icon [icon]="['fas', 'times']"></fa-icon></button>
     <div *ngIf="task.stepsVisible === true">
       <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps" [parentTask]="task" direction="vert"></tree-structure>
     </div>

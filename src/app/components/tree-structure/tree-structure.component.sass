@@ -8,23 +8,11 @@ $buttonWidth: 30px
 .tue
   border-color: $tueColor
 
-.main-task
-  width: $taskWidth
-  height: $taskWidth
-  border-width: 3px
-  border-style: solid
-  background-color: #ccc
-  margin: 20px 45px 0 0
-  position: relative
-  &.undone
-    border-color: #989898
-    opacity: 0.5
-    -webkit-filter: grayscale(100%) // Safari 6.0 - 9.0
-    filter: grayscale(100%)
 .complexTask
   box-shadow: inset 0 0 0 4px $bg
 .completed
-  box-shadow: inset 0 0 0 4px $green
+  //box-shadow: inset 0 0 0 4px $green
+  border-color: $green
 .task-col
   flex-direction: column
   margin-right: 45px
@@ -44,6 +32,19 @@ $buttonWidth: 30px
     bottom: 10px
   .subtask
     background-color: $bg
-    border: #fff
+    border: 1px solid #fff
     top: 35px
-
+  .main-task
+    width: $taskWidth
+    height: $taskWidth
+    scale: .9
+    border-width: 3px
+    border-style: solid
+    background-color: #ccc
+    margin: 20px 45px 0 0
+    position: relative
+  .undone
+    border-color: #989898
+    opacity: 0.5
+    -webkit-filter: grayscale(100%) // Safari 6.0 - 9.0
+    filter: grayscale(100%)

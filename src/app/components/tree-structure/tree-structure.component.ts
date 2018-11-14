@@ -106,13 +106,10 @@ export class TreeStructureComponent {
     task.done = true;
     //check if this is the last subtask
     if (i+1 === this.steps.length) {
-      this.parentTask.completed = true;   //for the css class
-      this.parentTask.done = true;        //for the status
-      this.parentTask.stepsVisible = false;          //to close the subtask
-      console.log(task);
-      console.log(this.parentTask);
+      this.parentTask.completed = true;     //for the css class
+      this.parentTask.done = true;          //for the status
+      this.parentTask.stepsVisible = false; //to close the subtask
     }
-//    console.log(task);
   }
 
   //mark a task as SKIPPED

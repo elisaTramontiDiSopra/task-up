@@ -9,8 +9,12 @@ WebFont.load({
   }
 });
 
+//font-awesome
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
-  faChevronLeft as fasChevronLeft
+  faArrowDown as fasArrowDown,
+  faChevronLeft as fasChevronLeft,
+  faTimes as fasTimes,
+  faCheck as fasCheck
 } from '@fortawesome/free-solid-svg-icons';
-library.add(fasChevronLeft);
+library.add(fasArrowDown, fasChevronLeft, fasCheck, fasTimes );
