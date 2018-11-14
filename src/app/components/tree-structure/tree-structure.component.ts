@@ -96,20 +96,19 @@ export class TreeStructureComponent {
     //if it's not the first element
     //and the preceding element has been done
     //then select it and start animation
-    console.log(task);
-    if ((i > 0 && this.steps[i - 1].done === true) || i === 0) {
+    console.log(this.steps);
+    /* if ((i > 0 && this.steps[i - 1].done === true) || i === 0) {
       task.selected = true;
-    }
+    } */
   }
 
   done(task, i) {
     task.done = true;
-    //check if this is the last subtask and eventually mark the parent task as completed
+    //check if this is the last subtask mark the parent task as completed and close the subtasks
     if (i+1 === this.steps.length) {
       this.parentTask.completed = true;
-      console.log("completed");
-      console.log(this.parentTask);
-      console.log(task);
+      this.parentTask.done = true;
+      this.selectThisStep(task, i);
     }
     console.log(task);
   }

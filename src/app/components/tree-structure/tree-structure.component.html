@@ -5,11 +5,11 @@
     <div class="main-task d-flex justify-content-center align-items-center rounded-circle"
       [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
       [ngClass]="{'task-col': task.steps}"
-      [class.undone]="task.selected === false && i > 0"
+      [class.undone]="i > 0 && steps[i-1].done === false"
       [class.complexTask]="task.steps"
       [class.completed]="task.completed"
       (click)="selectThisStep(task, i)">
-      {{task.name}} {{task.completed}}
+      {{task.name}}
     </div>
     <button class="subtask rounded-circle" *ngIf="task.steps"
       [disabled]="task.done === true"
@@ -25,7 +25,6 @@
       ><i class="fas fa-times"></i>S</button>
     <div *ngIf="task.stepsVisible === true">
       <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps" [parentTask]="task" direction="vert"></tree-structure>
-      <!-- <tree-structure *ngIf="task.steps" [day]="day" [data]="task" direction="vert"></tree-structure> -->
     </div>
   </div>
 </div>
