@@ -3,6 +3,7 @@
   [@slideInDown]="steps.lenght > 0">
   <div class="task-col" *ngFor="let task of steps; index as i;">
     <div class="position-relative">
+      <div *ngIf="direction === 'vert'" class="vertical-line"></div>
       <div class="main-task d-flex justify-content-center align-items-center rounded-circle"
         [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
         [ngClass]="{'task-col': task.steps}"
@@ -15,9 +16,7 @@
       <button class="subtask rounded-circle" *ngIf="task.steps.length > 0"
         [disabled]="task.done === true"
         (click)="selectThisStep(task, i)"
-        ><fa-icon [icon]="['fas', 'arrow-down']"></fa-icon></button><!--
-      <button class="done rounded-circle" *ngIf="task.skipped === false && !task.steps" -->
-
+        ><fa-icon [icon]="['fas', 'arrow-down']"></fa-icon></button>
       <button class="done rounded-circle" *ngIf="task.skipped === false && task.done === false && task.steps.length === 0"
         [disabled]="task.done === true"
         [class.undone]="i > 0 && steps[i-1].done === false"
