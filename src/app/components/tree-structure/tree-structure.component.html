@@ -18,12 +18,12 @@
         (click)="selectThisStep(task, i)"
         ><fa-icon [icon]="['fas', 'arrow-down']"></fa-icon></button>
       <button class="done rounded-circle" *ngIf="task.skipped === false && task.done === false && task.steps.length === 0"
-        [disabled]="task.done === true"
+        [disabled]="i > 0 && steps[i-1].done === false"
         [class.undone]="i > 0 && steps[i-1].done === false"
         (click)="done(task, i)"
         ><fa-icon [icon]="['fas', 'check']"></fa-icon></button>
       <button class="skip rounded-circle" *ngIf="task.done === false && task.steps.length === 0"
-        [disabled]="task.skipped === true"
+        [disabled]="i > 0 && steps[i-1].done === false"
         [class.undone]="i > 0 && steps[i-1].done === false"
         (click)="skipped()"
         ><fa-icon [icon]="['fas', 'times']"></fa-icon></button>
