@@ -14,6 +14,11 @@ import { routing } from './app.routing';
 import { AuthService, AuthInterceptor } from 'app';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+//FIREBASE
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { environment } from './services/firebase-credentials';
+
 // VIEWS
 import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
@@ -29,6 +34,7 @@ import { AnimateComponent } from './components/animate/animate.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
+import * as firebase from 'firebase';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,9 @@ import { LoadingService } from './services/loading.service';
     ToastrModule.forRoot({
       positionClass: 'toast-center' // custom class
     }),
-    FontAwesomeModule
+    FontAwesomeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule, // for database
   ],
   providers: [
     AuthService,

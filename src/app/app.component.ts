@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import '../style/global.sass';
+import * as firebase from 'firebase';
+import firestore from 'firebase/firestore';
 
 @Component({
   selector: 'app-root',
@@ -13,4 +15,6 @@ export class AppComponent {
   changeState(state: any) {
     this.toState = state;
   }
+
+
 }
