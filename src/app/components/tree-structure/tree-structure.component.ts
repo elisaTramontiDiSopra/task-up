@@ -110,6 +110,10 @@ export class TreeStructureComponent {
       this.parentTask.done = true;          //for the status
       this.parentTask.stepsVisible = false; //to close the subtask
     }
+    //check if this is a single task with no subtasks
+    if (task.steps.length === 0) {
+      task.completed = true;
+    }
   }
 
   //mark a task as SKIPPED

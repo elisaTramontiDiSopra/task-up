@@ -19,7 +19,8 @@ export class CalendarComponent {
           img: "image",
           done: false,
           skipped: false,
-          completed: false
+          completed: false,
+          steps: []
         },
         {
           name: "Bus",
@@ -32,13 +33,15 @@ export class CalendarComponent {
               name: "Go to the stop",
               img: "image",
               done: false,
-              skipped: false
+              skipped: false,
+              steps: []
             },
             {
               name: "Wait 4 bus",
               img: "image",
               done: false,
-              skipped: false
+              skipped: false,
+              steps: []
             }
           ]
         },
@@ -46,7 +49,8 @@ export class CalendarComponent {
           name: "Sit on bus",
           img: "image",
           done: false,
-          skipped: false
+          skipped: false,
+          steps: []
         }
       ]
     },
