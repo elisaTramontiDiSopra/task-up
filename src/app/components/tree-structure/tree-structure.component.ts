@@ -90,10 +90,15 @@ export class TreeStructureComponent {
   constructor() {}
 
   selectThisStep(task, i) {
-    //if the parent task is clicked make subtask visible
-    task.stepsVisible = !task.stepsVisible;
-    task.showSeparator = !task.showSeparator;
+    //let it click only if previous one is done
 
+    if(i > 0 && this.steps[i-1].done === false) {
+      console.log("don't open")
+    } else {
+      console.log("open");
+      task.stepsVisible = !task.stepsVisible;
+      task.showSeparator = !task.showSeparator;
+    }
     //if it's not the first element
     //and the preceding element has been done
     //then select it and start animation
