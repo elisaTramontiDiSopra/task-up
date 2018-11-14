@@ -6,13 +6,26 @@
       [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
       [ngClass]="{'task-col': task.steps}"
       [class.undone]="task.selected === false && i > 0"
+      [class.complexTask]="task.steps"
+      [class.completed]="task.completed"
       (click)="selectThisStep(task, i)">
-      {{task.name}}
-      <div class="done"></div>
-      <div class="skip"></div>
+      {{task.name}} {{task.completed}}
     </div>
+    <button class="subtask rounded-circle" *ngIf="task.steps"
+      [disabled]="task.done === true"
+      (click)="done(task, i)"
+      ><i class="fas fa-stroopwafel"></i>S</button>
+    <button class="done rounded-circle" *ngIf="task.skipped === false && !task.steps"
+      [disabled]="task.done === true"
+      (click)="done(task, i)"
+      ><i class="fas fa-stroopwafel"></i>D</button>
+    <button class="skip rounded-circle" *ngIf="task.done === false && !task.steps"
+      [disabled]="task.skipped === true"
+      (click)="skipped()"
+      ><i class="fas fa-times"></i>S</button>
     <div *ngIf="task.stepsVisible === true">
-      <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps" direction="horOrVert()"></tree-structure>
+      <tree-structure *ngIf="task.steps" [day]="day" [steps]="task.steps" [parentTask]="task" direction="vert"></tree-structure>
+      <!-- <tree-structure *ngIf="task.steps" [day]="day" [data]="task" direction="vert"></tree-structure> -->
     </div>
   </div>
 </div>
