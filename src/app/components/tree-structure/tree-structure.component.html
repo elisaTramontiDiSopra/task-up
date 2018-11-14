@@ -2,8 +2,8 @@
   [ngClass]="{'row': direction === 'horiz', 'nothing': direction === 'vert'}"
   [@slideInDown]="steps.lenght > 0">
   <div class="task-col" *ngFor="let task of steps; index as i;">
+    <div *ngIf="direction === 'vert'" class="vertical-line"></div>
     <div class="position-relative">
-      <div *ngIf="direction === 'vert'" class="vertical-line"></div>
       <div class="main-task d-flex justify-content-center align-items-center rounded-circle"
         [ngClass]="{'mon': day === 'mon', 'tue': day === 'tue'}"
         [ngClass]="{'task-col': task.steps}"
