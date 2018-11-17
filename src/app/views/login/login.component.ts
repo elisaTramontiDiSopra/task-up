@@ -57,11 +57,13 @@ export class LoginComponent {
     this.auth.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider()).then((suc) => {
       console.log(suc);
       localStorage.setItem('uid', suc.user.uid);
+      localStorage.setItem('language', "en_EN");
       var user = {
         uid:  suc.user.uid,
         email:  suc.user.email,
         photoURL: suc.user.photoURL,
         displayName: suc.user.displayName,
+        language: "en_EN"
       }
 
 

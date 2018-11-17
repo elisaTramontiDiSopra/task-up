@@ -15,8 +15,14 @@ export class UserService {
     return this.userCollection.doc(user.uid).set(user);
   }
 
-  deleteUser(user) {
-    //return this.userCollection.doc(user.uid).set(user);
+  updateUser(uid, key, value) {
+    return this.userCollection.doc(uid).update({
+      [key]: value
+    })
+  }
+
+  deleteUser(uid) {
+    return this.userCollection.doc(uid).delete();
   }
 
   /* updateCustomer(key: string, value: any): void {

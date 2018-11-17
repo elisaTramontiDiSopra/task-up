@@ -1,0 +1,13 @@
+{
+  "admin": {
+    "welcome": "Welcome",
+    "message": "Questa è.",
+    "changePassword": "Change password",
+    "passwordMessage": "This is your admin password. It will let you swich from the admin to the user profile and viceversa",
+    "selectLanguage": "Select language",
+    "change": "Change",
+    "italian": "Italiano",
+    "english": "Inglese"
+
+  }
+}

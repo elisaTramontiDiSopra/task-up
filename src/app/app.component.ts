@@ -26,6 +26,8 @@ export class AppComponent {
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     //translateService.use('en');
 
-    translateService.use('i18n/it_IT.json');
+    //check for the language stored locally
+    let language = localStorage.getItem("language");
+    translateService.use('i18n/'+language+'.json');
   }
 }

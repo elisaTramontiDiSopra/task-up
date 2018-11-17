@@ -27,14 +27,14 @@
         <h3 class="my-4">{{'admin.selectLanguage' | translate}}</h3>
         <div class="row m-auto mb-3">
           <div *ngFor="let lang of availableLanguages" class="custom-control custom-radio col-6">
-            <input type="radio" [id]="lang.name" name="language" class="custom-control-input" [value]="lang.value"
-              (ngModelChange)="changeLanguageSelection($event)">
+            <input type="radio" [id]="lang.name" name="language" class="custom-control-input" [(ngModel)]="selectedLanguage" [value]="lang.value"
+              (ngModelChange)="radioNotTouched = false; selectedLanguage = $event">
             <label class="custom-control-label radio-tertiary" [for]="lang.name">{{lang.label}}</label>
           </div>
 
 
         </div>
-        <button (click)="changePassword = !changePassword" class="btn btn-tertiary m-auto" [disabled]="!languageSelected.dirty || !languageSelected.touched">{{'admin.change'
+        <button (click)="changeSelectedLanguage()" class="btn btn-tertiary m-auto" [disabled]="radioNotTouched">{{'admin.change'
           |
           translate}}</button>
 
