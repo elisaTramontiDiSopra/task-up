@@ -63,7 +63,8 @@ export class LoginComponent {
         email:  suc.user.email,
         photoURL: suc.user.photoURL,
         displayName: suc.user.displayName,
-        language: "en_EN"
+        language: "en_EN",
+        password: "password"
       }
 
 

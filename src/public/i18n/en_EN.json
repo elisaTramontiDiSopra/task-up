@@ -2,8 +2,11 @@
   "admin": {
     "welcome": "Welcome",
     "message": "Questa è.",
-    "changePassword": "Change password",
+    "yourSettings": "Your settings",
+    "wannaChangePassword": "Want to change password?",
     "passwordMessage": "This is your admin password. It will let you swich from the admin to the user profile and viceversa",
+    "passwordPlaceholder": "Write your new password",
+    "passwordUpdateMsg": "Your password had been updated. Congrats!",
     "selectLanguage": "Select language",
     "change": "Change",
     "italian": "Italiano",
