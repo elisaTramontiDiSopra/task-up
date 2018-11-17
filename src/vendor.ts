@@ -15,8 +15,10 @@ import {
   faArrowDown as fasArrowDown,
   faChevronLeft as fasChevronLeft,
   faTimes as fasTimes,
-  faCheck as fasCheck
+  faCheck as fasCheck,
+  faEye as fasEye
 } from '@fortawesome/free-solid-svg-icons';
+library.add(fasArrowDown, fasChevronLeft, fasTimes, fasCheck, fasEye);
 import {
   faGoogle as fabGoogle
 } from '@fortawesome/free-brands-svg-icons';

@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule }   from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CollapseModule } from 'ngx-bootstrap/collapse';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
@@ -11,8 +11,10 @@ import { MomentModule } from 'angular2-moment';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { AuthService, AuthInterceptor } from 'app';
+import { AuthService, AuthInterceptor, TranslationsUrl } from 'app';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
@@ -26,6 +28,7 @@ import { HomeComponent } from './views/home/home.component';
 import { LoginComponent } from './views/login/login.component';
 import { ComponentsComponent } from './views/components/components.component';
 import { CalendarComponent } from './views/calendar/calendar.component';
+import { AdminComponent } from './views/admin/admin.component';
 
 // C0MPONENTS
 import { HeaderComponent } from './components/header/header.component';
@@ -41,6 +44,11 @@ import { FirebaseAuthService } from './services/firebase-auth.service';
 import { UserService } from './services/user.service';
 import * as firebase from 'firebase';
 
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, `${TranslationsUrl}/`, '');
+}
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +56,7 @@ import * as firebase from 'firebase';
     LoginComponent,
     ComponentsComponent,
     CalendarComponent,
+    AdminComponent,
 
     HeaderComponent,
     FooterComponent,
@@ -68,6 +77,13 @@ import * as firebase from 'firebase';
     MomentModule,
     ToastrModule.forRoot({
       positionClass: 'toast-center' // custom class
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     }),
     FontAwesomeModule,
 

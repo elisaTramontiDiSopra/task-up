@@ -1,0 +1,48 @@
+<div class="container">
+
+  <div class="row">
+    <div class="col-7 left">
+      <h1>{{'admin.welcome' | translate}} utente</h1>
+      <p>{{'admin.message' | translate}}</p>
+    </div>
+
+    <div class="col-5">
+      <div class="mb-5">
+        <h3 class="my-4">Password</h3>
+        <p>{{'admin.passwordMessage' | translate}}</p>
+        <div *ngIf="changePassword === true" class="new-password mb-3">
+          <input [type]="passwordType" [(ngModel)]="newPassword">
+          <button (click)="changePasswordVisibility()">
+            <fa-icon [icon]="['fas', 'eye']" class="mr-3"></fa-icon>
+          </button>
+        </div>
+        <button *ngIf="changePassword === true" (click)="changePassword()" class="btn btn-tertiary m-auto">{{'admin.changePassword' |
+          translate}}</button>
+
+        <button *ngIf="changePassword === false" (click)="changePassword = !changePassword" class="btn btn-tertiary m-auto">{{'admin.changePassword' |
+          translate}}</button>
+
+      </div>
+      <div class="my-5">
+        <h3 class="my-4">{{'admin.selectLanguage' | translate}}</h3>
+        <div class="row m-auto mb-3">
+          <div *ngFor="let lang of availableLanguages" class="custom-control custom-radio col-6">
+            <input type="radio" [id]="lang.name" name="language" class="custom-control-input" [value]="lang.value"
+              (ngModelChange)="changeLanguageSelection($event)">
+            <label class="custom-control-label radio-tertiary" [for]="lang.name">{{lang.label}}</label>
+          </div>
+
+
+        </div>
+        <button (click)="changePassword = !changePassword" class="btn btn-tertiary m-auto" [disabled]="!languageSelected.dirty || !languageSelected.touched">{{'admin.change'
+          |
+          translate}}</button>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+</div>

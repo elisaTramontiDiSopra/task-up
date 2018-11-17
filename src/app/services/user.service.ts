@@ -15,6 +15,10 @@ export class UserService {
     return this.userCollection.doc(user.uid).set(user);
   }
 
+  deleteUser(user) {
+    //return this.userCollection.doc(user.uid).set(user);
+  }
+
   /* updateCustomer(key: string, value: any): void {
     this.userRef
       .update(key, value)

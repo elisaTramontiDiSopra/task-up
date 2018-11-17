@@ -61,6 +61,8 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.1",
     "@fortawesome/free-brands-svg-icons": "^5.1.1",
     "@fortawesome/free-solid-svg-icons": "^5.1.1",
+    "@ngx-translate/core": "^11.0.1",
+    "@ngx-translate/http-loader": "^4.0.0",
     "angular2-ladda": "^2.0.0",
     "angular2-moment": "^1.8.0",
     "angularfire2": "^5.1.0",

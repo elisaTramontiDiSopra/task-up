@@ -1,0 +1,13 @@
+{
+  "admin": {
+    "welcome": "Benvenuto",
+    "message": "Questa è la pagina di amministrazione, qui potrai settare le tue preferenze. Fai particolare attenzione alla password che ti permetterà di modificare il profilo utente da amministratore a utilizzatore.",
+    "changePassword": "Cambia password",
+    "passwordMessage": "Questa password ti permette di passare dall'utente amministratore all'utilizzatore",
+    "selectLanguage": "Seleziona lingua",
+    "change": "Cambia",
+    "italian": "Italiano",
+    "english": "Inglese"
+
+  }
+}

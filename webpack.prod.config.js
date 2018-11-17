@@ -75,7 +75,10 @@ module.exports = function (env) {
         mainPath: './src/main.ts',
         tsConfigPath: 'tsconfig.json',
         sourceMap: env.sourcemap
-      })
+      }),
+      /* new CopyWebpackPlugin([
+        { from: root('src/public/i18n'), to: 'i18n' }
+      ]) */
     ]
   })
 }
