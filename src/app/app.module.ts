@@ -37,6 +37,8 @@ import { AnimateComponent } from './components/animate/animate.component';
 // SERVICES
 import { LoadingService } from './services/loading.service';
 import { FirebaseAuthService } from './services/firebase-auth.service';
+
+import { UserService } from './services/user.service';
 import * as firebase from 'firebase';
 
 @NgModule({
@@ -78,7 +80,8 @@ import * as firebase from 'firebase';
     AuthService,
     LoadingService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    FirebaseAuthService
+    FirebaseAuthService,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
