@@ -17,4 +17,7 @@ import {
   faTimes as fasTimes,
   faCheck as fasCheck
 } from '@fortawesome/free-solid-svg-icons';
-library.add(fasArrowDown, fasChevronLeft, fasCheck, fasTimes );
+import {
+  faGoogle as fabGoogle
+} from '@fortawesome/free-brands-svg-icons';
+library.add(fabGoogle);

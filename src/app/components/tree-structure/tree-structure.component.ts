@@ -110,10 +110,6 @@ export class TreeStructureComponent {
 
   done(task, i) {
     task.done = true;
-    console.log(task);
-    console.log(this.steps);
-
-    console.log(i);
     //check if this is the last subtask
     if (i+1 === this.steps.length) {
       this.parentTask.completed = true;     //for the css class
@@ -139,10 +135,6 @@ export class TreeStructureComponent {
   } */
 
   ngOnInit(): void {
-    //this.steps = this.parentTask.steps;
-    /* if (this.parentTask.stepsVisible === true) {
-      console.log("true")
-    } */
     this.steps.map(step => {
       step.showSeparator = false;  //for the separator div
     });

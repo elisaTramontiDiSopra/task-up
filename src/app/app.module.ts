@@ -17,6 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './services/firebase-credentials';
 
 // VIEWS
@@ -34,6 +36,7 @@ import { AnimateComponent } from './components/animate/animate.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
+import { FirebaseAuthService } from './services/firebase-auth.service';
 import * as firebase from 'firebase';
 
 @NgModule({
@@ -65,13 +68,17 @@ import * as firebase from 'firebase';
       positionClass: 'toast-center' // custom class
     }),
     FontAwesomeModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database
+    AngularFirestoreModule,
+    AngularFireAuthModule
   ],
   providers: [
     AuthService,
     LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    FirebaseAuthService
   ],
   bootstrap: [AppComponent]
 })

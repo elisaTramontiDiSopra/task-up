@@ -32,7 +32,6 @@ export class FireServiceProvider {
 
   saveTasks(task) {
     console.log(task);
-
   }
 
 /*
