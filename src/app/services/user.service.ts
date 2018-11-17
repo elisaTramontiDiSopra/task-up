@@ -21,6 +21,10 @@ export class UserService {
     })
   }
 
+  getUser(uid) {
+    return this.userCollection.doc(uid).get()
+  }
+
   deleteUser(uid) {
     return this.userCollection.doc(uid).delete();
   }

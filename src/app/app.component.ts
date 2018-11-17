@@ -29,5 +29,10 @@ export class AppComponent {
     //check for the language stored locally
     let language = localStorage.getItem("language");
     translateService.use('i18n/'+language+'.json');
+
+    //check for the language stored locally
+    var uid = localStorage.getItem("uid");
+
+
   }
 }

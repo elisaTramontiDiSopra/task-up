@@ -13,12 +13,14 @@ WebFont.load({
 import { library } from '@fortawesome/fontawesome-svg-core'
 import {
   faArrowDown as fasArrowDown,
+  faArrowRight as fasArrowRight,
   faChevronLeft as fasChevronLeft,
   faTimes as fasTimes,
   faCheck as fasCheck,
-  faEye as fasEye
+  faEye as fasEye,
+  faUserCog as fasUserCog,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(fasArrowDown, fasChevronLeft, fasTimes, fasCheck, fasEye);
+library.add(fasArrowDown, fasArrowRight, fasChevronLeft, fasTimes, fasCheck, fasEye, fasUserCog);
 import {
   faGoogle as fabGoogle
 } from '@fortawesome/free-brands-svg-icons';

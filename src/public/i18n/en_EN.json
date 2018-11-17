@@ -12,5 +12,10 @@
     "italian": "Italiano",
     "english": "Inglese"
 
+  },
+  "calendar": {
+    "modalAdminTitle": "Type your admin password",
+    "passwordPlaceholder": "Type your admin password",
+    "alertWrongPassword": "Wrong password!"
   }
 }
