@@ -6,7 +6,7 @@ import { CalendarComponent } from './views\/calendar\/calendar.component';
 import { AdminComponent } from './views\/admin\/admin.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: ComponentsComponent },
+  { path: '', pathMatch: 'full', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
 
