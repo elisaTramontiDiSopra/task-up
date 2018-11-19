@@ -29,6 +29,8 @@ import { LoginComponent } from './views/login/login.component';
 import { ComponentsComponent } from './views/components/components.component';
 import { CalendarComponent } from './views/calendar/calendar.component';
 import { AdminComponent } from './views/admin/admin.component';
+import { AdminEditComponent } from './views/admin/edit/admin-edit.component';
+import { AdminNewComponent } from './views/admin/new/admin-new.component';
 
 // C0MPONENTS
 import { HeaderComponent } from './components/header/header.component';
@@ -57,6 +59,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     ComponentsComponent,
     CalendarComponent,
     AdminComponent,
+    AdminEditComponent,
+    AdminNewComponent,
 
     HeaderComponent,
     FooterComponent,
