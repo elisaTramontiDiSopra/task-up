@@ -7,12 +7,9 @@ import { BehaviorSubject } from 'rxjs';
 
 @Injectable()
 export class AuthService {
-  private isLoggedInSubject = new BehaviorSubject(null);
-  private userSubject = new BehaviorSubject(null);
-  public jwtToken: string;
 
   private uid;
-  private tokens;
+  //private tokens;
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -24,26 +21,14 @@ export class AuthService {
     return { headers };
   }
 
-  // private user: User;
-
-  // private setUser(user) {
-  //   localStorage.setItem('user', JSON.stringify(user));
-  //   this.user = user;
-  // }
-
   login(data) {
     return this.http.post(`${ApiBaseUrl}/login`, data).pipe(map(res => {
       console.log(res);
-      //grab and save uid
       this.uid = res['user'].uid;
       localStorage.setItem('uid', this.uid);
       //grab and save token credentials
-      this.tokens = res['credentials'];
-      localStorage.setItem('credentials', this.tokens);
-
-
-      // this.setUser(user.json());
-      // return user.json()
+      /* this.tokens = res['credentials'];
+      localStorage.setItem('credentials', this.tokens); */
     }));
   }
 
@@ -63,23 +48,12 @@ export class AuthService {
     }
   }
 
-  // getUser() {
-  //   if (!this.user) {
-  //     if (localStorage.getItem('user')) {
-  //       // for some reason user has been removed from localStorage, try to recover it
-  //       this.setUser(JSON.parse(localStorage.getItem('user')));
-  //       return this.user;
-  //     } else {
-  //       this.router.navigate(['/login']);
-  //     }
-  //   } else {
-  //     return this.user;
-  //   }
-  // }
+  setAdminPassword() {
+    localStorage.setItem('admin', "true");
+  }
 
-  /* getAccessToken() {
-    if (this.uid) {
-      return !!this.user.access_token;
-    }
-  } */
+  deleteAdminPassword() {
+    localStorage.setItem('admin', "false");
+  }
+
 }
