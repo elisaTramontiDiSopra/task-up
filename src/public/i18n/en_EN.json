@@ -23,7 +23,6 @@
     "editTask": "Edit this task",
     "nameTitle": "Task name",
     "imgTitle": "Upload task image",
-    "allTasks": "All your saved tasks",
     "search": "Search"
   },
   "edit": {
@@ -33,7 +32,8 @@
     "thuSchedule": "Thursday's schedule",
     "friSchedule": "Friday's schedule",
     "satSchedule": "Satuday's schedule",
-    "sunSchedule": "Sunday's schedule"
+    "sunSchedule": "Sunday's schedule",
+    "allTasks": "All your saved tasks"
   },
   "general": {
     "mon": "Mon",

@@ -27,8 +27,9 @@ import {
   faMinus as fasMinus,
   faTrash as fasTrash,
   faSignOutAlt as fasSignOutAlt,
+  faListUl as fasListUl,
 } from '@fortawesome/free-solid-svg-icons';
-library.add(fasArrowDown, fasArrowUp, fasArrowRight, fasChevronUp, fasChevronDown, fasChevronLeft, fasChevronRight, fasTimes, fasCheck, fasEye, fasUserCog, fasPlus, fasMinus, fasTrash, fasSignOutAlt);
+library.add(fasArrowDown, fasArrowUp, fasArrowRight, fasChevronUp, fasChevronDown, fasChevronLeft, fasChevronRight, fasTimes, fasCheck, fasEye, fasUserCog, fasPlus, fasMinus, fasTrash, fasSignOutAlt, fasListUl);
 import {
   faGoogle as fabGoogle
 } from '@fortawesome/free-brands-svg-icons';
