@@ -5,6 +5,7 @@
 
 html
   font-size: 16px !important
+  height: 100%
   @include media-breakpoint-down(sm)
     font-size: 14px !important
 
@@ -13,6 +14,7 @@ html
   body
     background-color: $bg
     color: $white
+    height: 100%
 
 button
   border: none
@@ -32,3 +34,8 @@ button
   transform: rotate(90deg)
 .rotate270
   transform: rotate(270deg)
+
+//
+.page-centered
+  width: 95%
+  margin: auto
