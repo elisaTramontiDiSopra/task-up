@@ -1,10 +1,10 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-2">
-      <div class="mon" (click)="selectedTab = 'mon'">M</div>
-      <div class="tue" (click)="selectedTab = 'tue'">M</div>
-      <div class="wed" (click)="selectedTab = 'wed'">M</div>
-      <div class="thu" (click)="selectedTab = 'thu'">M</div>
+      <div class="mon" (click)="selectedTab = 'mon'">Mon</div>
+      <div class="tue" (click)="selectedTab = 'tue'">Tue</div>
+      <div class="wed" (click)="selectedTab = 'wed'">W</div>
+      <div class="thu" (click)="selectedTab = 'thu'">T</div>
       <div class="fri" (click)="selectedTab = 'fri'">M</div>
       <div class="sat" (click)="selectedTab = 'sat'">M</div>
       <div class="sun" (click)="selectedTab = 'sun'">S</div>
@@ -12,14 +12,32 @@
     <div class="col-5">
       <section *ngIf="selectedTab === 'mon'">
         <h1>Monday schedule</h1>
-        <div *ngFor="let task of mondayTasks; let i = index">
-          <img [src]="task.img" class="rounded-circle mr-3"/>
-          {{task.name}}
-          <button (click)="move(task, i, 'up')">Up</button>
-          <button (click)="move(task, i, 'down')">Down</button>
+        <div *ngFor="let task of mondayTasks; let i = index" class="row justify-content-between">
+          <div>
+            <img [src]="task.img" class="rounded-circle mr-3" />
+            <span class="">{{task.name}}</span>
+          </div>
+          <div>
+            <button (click)="move(task, i, 'up')">Up</button>
+            <button (click)="move(task, i, 'down')">Down</button>
+          </div>
         </div>
       </section>
     </div>
-    <div class="col-5"></div>
+    <div class="col-5">
+      <section *ngIf="selectedTab === 'mon'">
+        <h1>Monday schedule</h1>
+        <div *ngFor="let task of mondayTasks; let i = index" class="row justify-content-between">
+          <div>
+            <img [src]="task.img" class="rounded-circle mr-3" />
+            <span class="">{{task.name}}</span>
+          </div>
+          <div>
+            <button (click)="move(task, i, 'up')">Up</button>
+            <button (click)="move(task, i, 'down')">Down</button>
+          </div>
+        </div>
+      </section>
+    </div>
   </div>
-</div>
+</div> -->
