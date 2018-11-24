@@ -38,6 +38,8 @@ import { FooterComponent } from './components/footer/footer.component';
 import { LoadingComponent } from './components/loading-spinner/loading.component';
 import { TreeStructureComponent } from './components/tree-structure/tree-structure.component';
 import { AnimateComponent } from './components/animate/animate.component';
+import { ScheduleComponent } from './components/schedule/schedule.component';
+import { TaskBarComponent } from './components/task-bar/task-bar.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
@@ -66,7 +68,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     FooterComponent,
     LoadingComponent,
     TreeStructureComponent,
-    AnimateComponent
+    AnimateComponent,
+    ScheduleComponent,
+    TaskBarComponent
   ],
   imports: [
     BrowserModule,
