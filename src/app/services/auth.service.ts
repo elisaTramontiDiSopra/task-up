@@ -38,6 +38,10 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
+  isAuthenticated() {
+
+  }
+
   // getUser() {
   //   if (!this.user) {
   //     if (localStorage.getItem('user')) {
