@@ -11,6 +11,11 @@ export class AdminEditComponent {
   allTasks=[
     {name: "step1", img: "image", steps: [
        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+       {name: "step1", img: "image", steps: [
+        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+       ], done: false, skipped: false, selected: false, completed: false },
+       {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
     ], done: false, skipped: false, selected: false, completed: false },
     {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
