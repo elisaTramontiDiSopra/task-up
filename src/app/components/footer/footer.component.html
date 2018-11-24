@@ -1,4 +1,4 @@
-<footer id="main-footer" class="row container">
+<footer id="main-footer" class="row container-no-padding m-0">
   <div class="col-1" (click)="passwordModal.show()">
     <fa-icon [icon]="['fas', 'user-cog']"></fa-icon>
   </div>
@@ -16,15 +16,15 @@
         </button>
       </div> -->
       <div class="modal-body">
-        <div class="input-group mb-3">
+        <div class="input-group d-flex flex-direction-column mb-3">
           <input [type]="passwordType" class="form-control" placeholder="{{'calendar.passwordPlaceholder' | translate}}"
             [(ngModel)]="adminPassword" aria-describedby="button-addon2">
           <div class="input-group-append">
             <button class="btn btn-outline-primary" type="button" id="button-addon2" (click)="enterAdminMode()">
               <fa-icon [icon]="['fas', 'arrow-right']"></fa-icon>
             </button>{{showAlert}}
-            <div *ngIf="showAlert === true" class="alert alert-danger" role="alert">{{'calendar.alertWrongPassword' | translate}}</div>
           </div>
+          <div class="alert alert-danger" role="alert">{{'calendar.alertWrongPassword' | translate}}</div>
         </div>
       </div>
     </div>

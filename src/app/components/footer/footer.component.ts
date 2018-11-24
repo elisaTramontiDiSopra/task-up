@@ -1,6 +1,6 @@
 import { Component, ViewChild, Input } from '@angular/core';
-import { ModalDirective } from 'ngx-bootstrap/modal';
 import { UserService } from 'app/services/user.service';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 import { Router } from '@angular/router';
 
 @Component({
@@ -17,10 +17,7 @@ export class FooterComponent {
   passwordType = "password";
   showAlert = false;
 
-  constructor(
-    private userService: UserService,
-    private router: Router) {
-
+  constructor(public router: Router, private userService: UserService) {
     this.uid = localStorage.getItem("uid");
   }
 
@@ -30,9 +27,10 @@ export class FooterComponent {
     this.userService.getUser(this.uid).subscribe(function(doc) {
       let data = doc.data();
       if (adminPw === data.password) {
-        this.passwordModal.hide();
+        //this.passwordModal.hide();
         this.router.navigate(['/admin']);
         console.log(data);
+        this.r
       } else {
         console.log("wrong");
         this.showAlert = true;
