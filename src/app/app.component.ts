@@ -19,18 +19,22 @@ export class AppComponent {
 
  */
   constructor(translateService: TranslateService) {
-
     // this language will be used as a fallback when a translation isn't found in the current language
     //translateService.setDefaultLang('en');
+
+    //set ENG as default lang
+    translateService.use('i18n/en_EN.json');
 
     // the lang to use, if the lang isn't available, it will use the current loader to get them
     //translateService.use('en');
 
     //check for the language stored locally
     let language = localStorage.getItem("language");
-    translateService.use('i18n/'+language+'.json');
+    if (language) {
+      translateService.use('i18n/'+language+'.json');
+    }
 
-    //check for the language stored locally
+    //check for the user stored locally
     var uid = localStorage.getItem("uid");
 
 

@@ -17,5 +17,35 @@
     "modalAdminTitle": "Type your admin password",
     "passwordPlaceholder": "Type your admin password",
     "alertWrongPassword": "Wrong password!"
+  },
+  "new": {
+    "newTask": "Create a new task",
+    "editTask": "Edit this task",
+    "nameTitle": "Task name",
+    "imgTitle": "Upload task image",
+    "allTasks": "All your saved tasks",
+    "search": "Search"
+  },
+  "edit": {
+    "monSchedule": "Monday's schedule",
+    "tueSchedule": "Tuesday's schedule",
+    "wedSchedule": "Wednesday's schedule",
+    "thuSchedule": "Thursday's schedule",
+    "friSchedule": "Friday's schedule",
+    "satSchedule": "Satuday's schedule",
+    "sunSchedule": "Sunday's schedule"
+  },
+  "general": {
+    "mon": "Mon",
+    "tue": "Tue",
+    "wed": "Wed",
+    "thu": "Thu",
+    "fri": "Fri",
+    "sat": "Sat",
+    "sun": "Sun",
+    "save": "Save",
+    "saveAll": "Save all"
   }
+
+
 }
