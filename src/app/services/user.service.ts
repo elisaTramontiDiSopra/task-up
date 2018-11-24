@@ -29,6 +29,11 @@ export class UserService {
     return this.userCollection.doc(uid).delete();
   }
 
+  getUid() {
+    let tempUid = localStorage.getItem("uid");
+    return tempUid.slice(1, -1);
+  }
+
   /* updateCustomer(key: string, value: any): void {
     this.userRef
       .update(key, value)
