@@ -10,6 +10,7 @@ import { TranslateService } from '@ngx-translate/core';
 export class ScheduleComponent {
   @Input() day;
   @Input() tasks;
+  @Input() addList;
 
   constructor(private translateService: TranslateService) {}
 

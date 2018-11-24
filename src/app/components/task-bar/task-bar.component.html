@@ -1,0 +1,28 @@
+<div *ngFor="let task of tasks; let i = index" class="row justify-content-between align-items-center btn-dark rounded my-3 mx-auto px-3 py-2">
+  <div class="col-8">
+    <img class="rounded-circle mr-4" [src]="task.img" />
+    <span class="">{{task.name}}</span>
+  </div>
+  <div class="col-4 d-flex align-items-center no-gutters">
+
+    <button *ngIf="addButton === true" class="btn btn-primary rounded-circle mx-1" (click)="addTask(task, i)">
+      <fa-icon [icon]="['fas', 'plus']"></fa-icon>
+    </button>
+    <button *ngIf="subtaskButton === true" class="btn rounded-circle rotate90 mx-1" (click)="makeSubtask(task, i)">
+      <fa-icon [icon]="['fas', 'sign-out-alt']"></fa-icon>
+    </button>
+    <button *ngIf="deleteButton === true" class="btn btn-danger rounded-circle mx-1" (click)="removeTask(task, i)">
+      <fa-icon [icon]="['fas', 'minus']"></fa-icon>
+    </button>
+    <div class="col mx-1">
+      <button *ngIf="moveUpDown === true" class="btn btn-small d-flex align-items-center mb-1" (click)="move(task, i, 'up')"
+        [disabled]="i===0">
+        <fa-icon [icon]="['fas', 'chevron-up']"></fa-icon>
+      </button>
+      <button *ngIf="moveUpDown === true" class="btn btn-small d-flex align-items-center" (click)="move(task, i, 'down')"
+        [disabled]="i===tasks.length-1">
+        <fa-icon [icon]="['fas', 'chevron-down']"></fa-icon>
+      </button>
+    </div>
+  </div>
+</div>

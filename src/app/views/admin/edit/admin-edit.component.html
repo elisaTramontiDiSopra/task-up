@@ -8,23 +8,12 @@
       <div class="fri d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'fri'">{{"general.fri" | translate}}</div>
       <div class="sat d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'sat'">{{"general.sat" | translate}}</div>        <div class="sun d-flex align-items-center justify-content-center" (click)="selectedTab = 'sun'">{{"general.sun" | translate}}</div>
     </div>
-    <div class="col-6">
-      <schedule *ngIf="selectedTab === 'mon'" [day]="'mon'" [tasks]="mondayTasks"></schedule>
+    <div class="col-6 px-2">
+      <schedule *ngIf="selectedTab === 'mon'" [day]="'mon'" [tasks]="mondayTasks" [addList]="allTasks"></schedule>
     </div>
     <div class="col-5">
-      <section >
         <h1>all tasks schedule</h1>
-          <div *ngFor="let task of mondayTasks; let i = index" class="row justify-content-between">
-            <div>
-              <img [src]="task.img" class="rounded-circle mr-3" />
-              <span class="">{{task.name}}</span>
-            </div>
-            <div>
-              <button (click)="move(task, i, 'up')">Up</button>
-              <button (click)="move(task, i, 'down')">Down</button>
-            </div>
-          </div>
-        </section>
+        <task-bar [tasks]="allTasks" [moveUpDown]="true" [addButton]="true" [addList]="mondayTasks" [deleteButton]="false" [subtaskButton]="false"></task-bar>
       </div>
     </div>
   </div>
