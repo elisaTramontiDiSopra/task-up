@@ -9,14 +9,14 @@ import { BehaviorSubject } from 'rxjs';
 export class AuthService {
 
   private uid;
-  //private tokens;
+  private tokens;
 
   constructor(private http: HttpClient, private router: Router) {}
 
   getOptions() {
     let headers = new HttpHeaders();
-    if (this.jwtToken) {
-      headers = headers.append('Authorization', `Bearer: ${this.jwtToken}`);
+    if (this.tokens.accessToken) {
+      headers = headers.append('Authorization', `Bearer: ${this.tokens.accessToken}`);
     }
     return { headers };
   }
@@ -27,8 +27,8 @@ export class AuthService {
       this.uid = res['user'].uid;
       localStorage.setItem('uid', this.uid);
       //grab and save token credentials
-      /* this.tokens = res['credentials'];
-      localStorage.setItem('credentials', this.tokens); */
+      this.tokens = res['credentials'];
+      localStorage.setItem('credentials', this.tokens);
     }));
   }
 
