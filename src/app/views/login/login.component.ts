@@ -46,6 +46,7 @@ export class LoginComponent {
       this.loadingService.stop();
       console.log(r);
       localStorage.setItem('uid', JSON.stringify(r.user.uid));
+      this.router.navigate(['/calendar']);
     })
     .catch(err => {
       this.loadingService.stop();
