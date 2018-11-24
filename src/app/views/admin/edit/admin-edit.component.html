@@ -1,5 +1,5 @@
-<div class="container">
-  <div class="row">
+<div class="h-100 row no-gutters">
+  <div class="row page-centered">
     <div class="col-1 border-right day-tabs">
       <div class="mon d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'mon'">{{"general.mon" | translate}}</div>
       <div class="tue d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'tue'">{{"general.tue" | translate}}</div>
@@ -9,7 +9,7 @@
       <div class="sat d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'sat'">{{"general.sat" | translate}}</div>        <div class="sun d-flex align-items-center justify-content-center" (click)="selectedTab = 'sun'">{{"general.sun" | translate}}</div>
     </div>
     <div class="col-6 border-right px-3 ">
-      <h1>{{'edit.'+selectedTab+'Schedule' | translate}}</h1>
+      <h3>{{'edit.'+selectedTab+'Schedule' | translate}}</h3>
       <task-bar
         *ngIf="selectedTab === 'mon'"
         [tasks]="mondayTasks" [addList]="allTasks"
@@ -20,6 +20,9 @@
         [subTaskButton]="true"></task-bar>
      <!--
       <schedule *ngIf="selectedTab === 'mon'" [day]="'mon'" [tasks]="mondayTasks" [addList]="allTasks"></schedule> -->
+      <div class="row">
+        <button (click)=saveSchedule()></button>
+      </div>
     </div>
     <div class="col-5 px-3 ">
       <h1>{{'edit.allTasks' | translate}}</h1>
