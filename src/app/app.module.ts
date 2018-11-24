@@ -24,7 +24,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './services/firebase-credentials';
 
 // GUARD
-import { AuthGuard } from './guards/auth.guard';
+import { AuthGuardService } from './guards/auth.guard';
 
 // VIEWS
 import { HomeComponent } from './views/home/home.component';
@@ -109,7 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     FirebaseAuthService,
     UserService,
-    AuthGuard
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

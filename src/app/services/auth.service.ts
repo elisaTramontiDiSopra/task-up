@@ -10,6 +10,10 @@ export class AuthService {
   private isLoggedInSubject = new BehaviorSubject(null);
   private userSubject = new BehaviorSubject(null);
   public jwtToken: string;
+
+  private uid;
+  private tokens;
+
   constructor(private http: HttpClient, private router: Router) {}
 
   getOptions() {
@@ -28,18 +32,35 @@ export class AuthService {
   // }
 
   login(data) {
-    return this.http.post(`${ApiBaseUrl}/login`, data).pipe(map(user => {
+    return this.http.post(`${ApiBaseUrl}/login`, data).pipe(map(res => {
+      console.log(res);
+      //grab and save uid
+      this.uid = res['user'].uid;
+      localStorage.setItem('uid', this.uid);
+      //grab and save token credentials
+      this.tokens = res['credentials'];
+      localStorage.setItem('credentials', this.tokens);
+
+
       // this.setUser(user.json());
       // return user.json()
     }));
   }
 
   logout() {
-    localStorage.removeItem('user');
+    localStorage.removeItem('uid');
   }
 
   isAuthenticated() {
-
+    if(!this.uid) {
+      if(localStorage.getItem('uid')) {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return true
+    }
   }
 
   // getUser() {
@@ -56,9 +77,9 @@ export class AuthService {
   //   }
   // }
 
-  // getAccessToken() {
-  //   if (this.user) {
-  //     return !!this.user.access_token;
-  //   }
-  // }
+  /* getAccessToken() {
+    if (this.uid) {
+      return !!this.user.access_token;
+    }
+  } */
 }

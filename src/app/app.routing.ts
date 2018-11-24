@@ -7,17 +7,21 @@ import { AdminComponent } from './views\/admin\/admin.component';
 import { AdminEditComponent } from './views\/admin\/edit\/admin-edit.component';
 import { AdminNewComponent } from './views\/admin\/new\/admin-new.component';
 
+import { AuthGuardService } from './guards/auth.guard';
+
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', component: LoginComponent },
   { path: 'home', component: HomeComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'admin', component: AdminComponent },
-
-  { path: 'admin-edit', component: AdminEditComponent },
-  { path: 'admin-new', component: AdminNewComponent },
-  { path: 'calendar', component: CalendarComponent },
-
+  { path: '', canActivate: [AuthGuardService], children: [
+    { path: 'admin', component: AdminComponent },
+    { path: 'admin-edit', component: AdminEditComponent },
+    { path: 'admin-new', component: AdminNewComponent },
+    { path: 'calendar', component: CalendarComponent },
+  ]},
   { path: '**', redirectTo: 'login' }
+];
 /*
   { path: '', canActivate: [AuthGuard], children: [
     { path: 'home', component: HomeComponent },
@@ -28,6 +32,6 @@ const routes: Routes = [
   //{ path: 'patients/:id/manual-therapy', component: ManualTherapyComponent },
   //{ path: 'patients/:patientId/therapies/:id', component: PatientTherapyComponent },
   //{ path: 'analytics', component: AnalyticsComponent }
- */];
+ */
 
 export const routing = RouterModule.forRoot(routes);
