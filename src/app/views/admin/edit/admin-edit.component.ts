@@ -17,38 +17,38 @@ export class AdminEditComponent {
 
 
   allTasks=[
-    {name: "step1", img: "image", steps: [
-       {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-       {name: "step1", img: "image", steps: [
-        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-        {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step1", img: "/images/default_pin.jpg", steps: [
+       {name: "step1", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+       {name: "step1", img: "/images/default_pin.jpg", steps: [
+        {name: "step1", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+        {name: "step1", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
        ], done: false, skipped: false, selected: false, completed: false },
-       {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-       {name: "step1", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+       {name: "step1", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+       {name: "step1", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
     ], done: false, skipped: false, selected: false, completed: false },
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
 
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
 
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
 
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
 
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
 
-    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
-    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step2", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "/images/default_pin.jpg", steps: [], done: false, skipped: false, selected: false, completed: false },
   ];
 
   constructor(private apiFirebase: FireServiceProvider) { }

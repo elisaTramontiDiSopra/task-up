@@ -8,7 +8,7 @@
       <div class="fri d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'fri'">{{"general.fri" | translate}}</div>
       <div class="sat d-flex align-items-center justify-content-center border-bottom " (click)="selectedTab = 'sat'">{{"general.sat" | translate}}</div>        <div class="sun d-flex align-items-center justify-content-center" (click)="selectedTab = 'sun'">{{"general.sun" | translate}}</div>
     </div>
-    <div class="col-6 d-flex justify-content-start flex-column align-items-end border-right px-3 ">
+    <div class="col-6 d-flex justify-content-start flex-column align-items-end border-right px-3">
       <div class="mb-auto w-100">
       <h3>{{'edit.'+selectedTab+'Schedule' | translate}}</h3>
       <task-bar
@@ -26,15 +26,20 @@
         <button class="btn btn-primary" (click)=saveSchedule()>{{'general.saveAll' | translate}}</button>
       </div>
     </div>
-    <div class="col-5 px-3 ">
-      <h1>{{'edit.allTasks' | translate}}</h1>
-      <task-bar
-        [tasks]="allTasks" [addList]="mondayTasks"
-        [moveUpDown]="false"
-        [addButton]="true"
-        [deleteButton]="false"
-        [isSubtask]="false"
-        [subTaskButton]="false"></task-bar>
+    <div class="col-5 d-flex justify-content-start flex-column align-items-end border-right px-3">
+      <div class="mb-auto w-100">
+        <h3>{{'edit.allTasks' | translate}}</h3>
+        <task-bar
+          [tasks]="allTasks" [addList]="mondayTasks"
+          [moveUpDown]="false"
+          [addButton]="true"
+          [deleteButton]="false"
+          [isSubtask]="false"
+          [subTaskButton]="false"></task-bar>
+      </div>
+      <div class="row saving-buttons justify-content-end px-3">
+        SEARCH BAR
+      </div>
     </div>
   </div>
 </div>
