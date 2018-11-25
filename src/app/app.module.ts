@@ -48,6 +48,7 @@ import { TaskBarComponent } from './components/task-bar/task-bar.component';
 import { LoadingService } from './services/loading.service';
 import { FirebaseAuthService } from './services/firebase-auth.service';
 
+import { FireServiceProvider } from './services/firebase.service';
 import { UserService } from './services/user.service';
 import * as firebase from 'firebase';
 
@@ -108,6 +109,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     LoadingService,
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     FirebaseAuthService,
+    FireServiceProvider,
     UserService,
     AuthGuardService
   ],

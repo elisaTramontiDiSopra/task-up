@@ -4,11 +4,12 @@ import { ToastrService } from "ngx-toastr";
 
 @Injectable()
 export class UserService {
-  userRef;
+  uid;
   userCollection: AngularFirestoreCollection;
 
   constructor(private afs: AngularFirestore, private toaster: ToastrService) {
     this.userCollection = this.afs.collection('users');
+    this.uid = this.getUid();
   }
 
   createUser(user) {

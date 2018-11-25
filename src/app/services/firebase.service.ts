@@ -1,13 +1,18 @@
+import { UserService } from 'app/services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from "angularfire2/firestore";
 import { AngularFireDatabase } from 'angularfire2/database';
 import { Observable } from 'rxjs';
+import { ToastrService } from 'ngx-toastr';
 
 
 
 @Injectable()
 export class FireServiceProvider {
+  userRef;
+  scheduleCollection: AngularFirestoreCollection;
+
 
 /*
   productCollection: AngularFirestoreCollection<Product>;
@@ -21,7 +26,8 @@ export class FireServiceProvider {
 /* ALERT NAME-PRICE MODAL* showAlertForNameAndPrice = false;
          /* CURRENT USER * currentUser */
 
-  constructor(public http: HttpClient, public db: AngularFireDatabase, private afs: AngularFirestore, public storage: Storage) {
+  constructor(private afs: AngularFirestore, private userService: UserService, private toaster: ToastrService) {
+    this.scheduleCollection = this.afs.collection('schedule');
     /* this.storage.get('uid').then(localStorageUser => {
       this.currentUser = localStorageUser;
       this.productUserCollection = this.afs.collection('prod-' + this.currentUser, ref => ref.orderBy('name'));
@@ -30,9 +36,22 @@ export class FireServiceProvider {
     }); */
   }
 
+
+
+
   saveTasks(task) {
     console.log(task);
   }
+
+  saveSchedule(schedule): Promise<any> {
+    console.log(schedule);
+    if(this.userService.uid) {
+      return this.scheduleCollection.doc(this.userService.uid).set(schedule)
+    } else {
+      this.toaster.error("C'è qualcosa che non va con l'uid nel salvataggio schedule");
+    }
+  }
+
 
 /*
   // CRUD PRODUCT OPERATIONS - PRODUCT PAGE

@@ -1,3 +1,4 @@
+import { FireServiceProvider } from './../../../services/firebase.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,6 +8,13 @@ import { Component } from '@angular/core';
 export class AdminEditComponent {
   selectedTab = 'mon';
   mondayTasks=[];
+  tuedayTasks=[];
+  wednesdayTasks=[];
+  thursdayTasks=[];
+  fridayTasks=[];
+  saturdayTasks=[];
+  sundayTasks=[];
+
 
   allTasks=[
     {name: "step1", img: "image", steps: [
@@ -21,9 +29,40 @@ export class AdminEditComponent {
     {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
     {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
     {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+
+    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+
+    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+
+    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+
+    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+
+    {name: "step2", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step3", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
+    {name: "step4", img: "image", steps: [], done: false, skipped: false, selected: false, completed: false },
   ];
 
-  constructor() { }
+  constructor(private apiFirebase: FireServiceProvider) { }
 
-
+  saveSchedule() {
+    let weeklySchedule = {
+      mon: this.mondayTasks,
+      tue: this.tuedayTasks,
+      wed: this.wednesdayTasks,
+      thu: this.thursdayTasks,
+      fri: this.fridayTasks,
+      sat: this.saturdayTasks,
+      sun: this.sundayTasks
+    };
+    this.apiFirebase.saveSchedule(weeklySchedule).then(r => console.log("Schedule saving: OK")) //
+  }
 }
