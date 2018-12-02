@@ -3,6 +3,8 @@ import { TranslateService } from "@ngx-translate/core";
 import "../style/global.sass";
 import * as firebase from "firebase";
 import firestore from "firebase/firestore";
+import { Router, NavigationEnd } from "@angular/router";
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: "app-root",
@@ -10,15 +12,14 @@ import firestore from "firebase/firestore";
   styleUrls: ["./app.component.sass"]
 })
 export class AppComponent {
-  //animation settings
-  //toState = 'state1';
+  showFooter = true;
 
   /* changeState(state: any) {
     this.toState = state;
   }
 
  */
-  constructor(translateService: TranslateService) {
+  constructor(translateService: TranslateService, public router: Router,) {
     // this language will be used as a fallback when a translation isn't found in the current language
     //translateService.setDefaultLang('en');
 
@@ -37,6 +38,17 @@ export class AppComponent {
     //check for the user stored locally
     var uid = localStorage.getItem("uid");
 
-
+    //if I'm on login or on empty url hide footer
+    this.router.events
+      .pipe(filter(e => e instanceof NavigationEnd))
+      .subscribe((event: NavigationEnd) => {
+        if (event.urlAfterRedirects === '/login' || event.urlAfterRedirects === '/') {
+          this.showFooter = false;
+        } else {
+          this.showFooter = true;
+        }
+      })
   }
+
+
 }

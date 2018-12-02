@@ -59,4 +59,5 @@ export class FooterComponent {
     let goPage = "/"+page
     this.router.navigate([goPage]);
   }
+
 }
