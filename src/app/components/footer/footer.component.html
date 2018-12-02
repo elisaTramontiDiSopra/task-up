@@ -1,6 +1,12 @@
-<footer id="main-footer" class="row container-no-padding m-0">
-  <div class="col-1" (click)="passwordModal.show()">
-    <fa-icon [icon]="['fas', 'user-cog']"></fa-icon>
+<footer id="main-footer" class="row justify-content-between align-items-center container-no-padding m-0">
+  <div class="col-4 text-center border-right" (click)="goTo('calendar')">{{'footer.calendar' | translate}}
+    <fa-icon class="ml-4" [icon]="['fas', 'calendar-alt']"></fa-icon>
+  </div>
+  <div class="col-4 text-center border-right" (click)="goTo('calendar')">{{'footer.game' | translate}}
+    <fa-icon class="ml-4" [icon]="['fas', 'gamepad']"></fa-icon>
+  </div>
+  <div class="col-4 text-center" (click)="passwordModal.show()">{{'footer.admin' | translate}}
+    <fa-icon class="ml-4" [icon]="['fas', 'user-cog']"></fa-icon>
   </div>
 </footer>
 
@@ -19,7 +25,7 @@
             </button>
           </div>
         </div>
-        <div *ngIf="showAlert === true"class="text-danger" role="alert">{{'calendar.alertWrongPassword' | translate}}</div>
+        <div *ngIf="showAlert === true" class="text-danger" role="alert">{{'footer.alertWrongPassword' | translate}}</div>
       </div>
     </div>
   </div>

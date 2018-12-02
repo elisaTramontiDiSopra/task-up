@@ -15,8 +15,7 @@
   },
   "calendar": {
     "modalAdminTitle": "Type your admin password",
-    "passwordPlaceholder": "Type your admin password",
-    "alertWrongPassword": "Wrong password. Ask the real admin for it!"
+    "passwordPlaceholder": "Type your admin password"
   },
   "new": {
     "newTask": "Create a new task",
@@ -45,6 +44,12 @@
     "sun": "Sun",
     "save": "Save",
     "saveAll": "Save all"
+  },
+  "footer": {
+    "calendar": "Calendar",
+    "game": "Game",
+    "admin": "Admin Panel",
+    "alertWrongPassword": "Wrong password. Ask the real admin for it!"
   }
 
 

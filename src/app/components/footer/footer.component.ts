@@ -54,4 +54,9 @@ export class FooterComponent {
       } */
     });
   }
+
+  goTo(page) {
+    let goPage = "/"+page
+    this.router.navigate([goPage]);
+  }
 }
