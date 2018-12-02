@@ -74,7 +74,9 @@
     "ngx-bootstrap": "^3.0.0",
     "ngx-toastr": "^9.1.0",
     "popper.js": "^1.14.3",
+    "reboard-angular": "git+ssh://git@github.com/visup/reboard-angular.git#22f297b",
     "rxjs": "^6.1.0",
+    "tadaboard-widgets": "git+ssh://git@github.com/visup/tadaboard-widgets.git#1f8019e",
     "webfontloader": "^1.6.27",
     "zone.js": "~0.8.26"
   }
