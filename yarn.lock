@@ -4537,6 +4537,10 @@ lodash@^4.11.1:
   version "4.17.4"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.4.tgz#78203a4d1c328ae1d86dca6460e369b57f4055ae"
 
+lodash@^4.17.4:
+  version "4.17.11"
+  resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
+
 lodash@~2.4.1:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-2.4.2.tgz#fadd834b9683073da179b3eae6d9c0d15053f73e"
@@ -6772,6 +6776,12 @@ rxjs@6.3.3:
   dependencies:
     tslib "^1.9.0"
 
+rxjs@^5.4.1:
+  version "5.5.12"
+  resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-5.5.12.tgz#6fa61b8a77c3d793dbaf270bee2f43f652d741cc"
+  dependencies:
+    symbol-observable "1.0.1"
+
 rxjs@^6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/rxjs/-/rxjs-6.1.0.tgz#833447de4e4f6427b9cec3e5eb9f56415cd28315"
@@ -7460,6 +7470,10 @@ svgo@^1.0.0:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
+symbol-observable@1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/symbol-observable/-/symbol-observable-1.0.1.tgz#8340fc4702c3122df5d22288f88283f513d3fdd4"
+
 table-layout@^0.4.3, table-layout@~0.4.0:
   version "0.4.3"
   resolved "https://registry.yarnpkg.com/table-layout/-/table-layout-0.4.3.tgz#07509e1d72599f2c128a58ac67682ec4ba002af0"
@@ -7469,6 +7483,13 @@ table-layout@^0.4.3, table-layout@~0.4.0:
     lodash.padend "^4.6.1"
     typical "^2.6.1"
     wordwrapjs "^3.0.0"
+
+"tadaboard-bus@git+ssh://git@github.com/visup/tadaboard-bus.git#18487a6":
+  version "0.4.0"
+  resolved "git+ssh://git@github.com/visup/tadaboard-bus.git#18487a6f71d45548b86978b7e0c53017d2387cea"
+  dependencies:
+    lodash "^4.17.4"
+    rxjs "^5.4.1"
 
 "tadaboard-widgets@git+ssh://git@github.com/visup/tadaboard-widgets.git#1f8019e":
   version "0.5.7"
