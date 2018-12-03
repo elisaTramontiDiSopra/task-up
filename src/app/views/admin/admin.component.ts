@@ -3,6 +3,8 @@ import { UserService } from '../../services/user.service';
 import { TranslateService } from '@ngx-translate/core';
 import { trigger, style, animate, transition, keyframes, query, stagger} from "@angular/animations";
 
+import Dashboard from "tadaboard-bus/src/dashboard";
+
 @Component({
   templateUrl: './admin.component.html',
   styleUrls: ['./admin.component.sass'],
@@ -68,6 +70,22 @@ export class AdminComponent {
   availableLanguages = [
     {name: "italian", value: "it_IT", label: "Italiano"},
     {name: "english", value: "en_EN", label: "English"},
+  ];
+
+  linesConfig = {
+    scales: { x: { type: 'time' }, y: { domainZero: true }, color: { type: 'ordinal', range: ['#fddd62', '#ddd'] } },
+    axes: { x: { tickNum: 4, tickFormat: '{M(x)}' }, y: { tickNum: 3, tickFormat: '{N(y)}' } },
+    tooltip: { visible: true, textFormat: '<div class="small">{T(new Date($x),"%H:%M:%S")}</div><div class="h3">{N($y, "0")}</div>' }
+  }
+
+  //x = weex | y = answers
+  lineChartData = [
+    { "x": 1511272800000, "y": 12, color: "done" },
+    { "x": 1511276400000, "y": 14, color: "done" },
+    { "x": 1511280000000, "y": 11, color: "done"  },
+    { "x": 1511272800000, "y": 16, color: "total" },
+    { "x": 1511276400000, "y": 16, color: "total" },
+    { "x": 1511280000000, "y": 16, color: "total"  },
   ]
 
   constructor(
@@ -101,5 +119,4 @@ export class AdminComponent {
       }, 300);
     });
   }
-
 }

@@ -16,6 +16,10 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
+//TADABOARD REBOARD
+import { LinesCompleteChartModule } from 'reboard-angular/app/lines-complete-chart/lines-complete-chart.module';
+import WidgetDirective from 'tadaboard-bus/src/angular/widget-directive';
+
 //FIREBASE
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -74,7 +78,10 @@ export function HttpLoaderFactory(http: HttpClient) {
     TreeStructureComponent,
     AnimateComponent,
     ScheduleComponent,
-    TaskBarComponent
+    TaskBarComponent,
+
+    WidgetDirective,
+    //LinesCompleteChartComponent,
   ],
   imports: [
     BrowserModule,
@@ -98,6 +105,8 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     FontAwesomeModule,
+
+    LinesCompleteChartModule,
 
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule, // for database

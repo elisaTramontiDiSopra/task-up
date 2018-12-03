@@ -4,6 +4,8 @@
     <div class="col-7 border-right">
       <h1>{{'admin.welcome' | translate}} utente</h1>
       <p>{{'admin.message' | translate}}</p>
+      <lines-complete-chart [data]="lineChartData" [options]="linesConfig"></lines-complete-chart>
+
     </div>
 
     <div class="col-5 px-5">

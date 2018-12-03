@@ -16,3 +16,31 @@
       background-color: #fff
 
 
+lines-complete-chart
+  height: 200px
+  width: 100%
+  /deep/
+    .chart-container
+      width: 95% !important
+      left: 5% !important
+    .line-item
+      stroke-width: 2
+    .ng-star-inserted
+      /deep/
+        .area-item
+          opacity: 0.3
+        .point-item
+          stroke-width: 8
+    .ng-star-inserted:nth-child(2)
+      /deep/
+        .line-item
+          stroke-dasharray: 5
+        .area-item
+          opacity: 0
+        .point-item
+          stroke-width: 0 !important
+    .axis-x-container
+      left: 5% !important
+      width: 95% !important
+    .axis-y-container
+      width: 5% !important

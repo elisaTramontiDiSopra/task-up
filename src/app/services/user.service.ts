@@ -34,6 +34,8 @@ export class UserService {
     if (localStorage.getItem("uid")) {
       let tempUid = localStorage.getItem("uid");
       return tempUid.slice(1, -1);
+    } else {
+      this.uid = "";
     }
   }
 
