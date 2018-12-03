@@ -10,7 +10,10 @@
     "selectLanguage": "Select language",
     "change": "Change",
     "italian": "Italiano",
-    "english": "Inglese"
+    "english": "Inglese",
+    "lineChartText": "Assigned tasks / Done tasks",
+    "legendAssigned": "Assigned tasks",
+    "legendDone": "Done tasks"
 
   },
   "calendar": {
