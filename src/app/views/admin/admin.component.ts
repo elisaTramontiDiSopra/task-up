@@ -75,7 +75,7 @@ export class AdminComponent {
   linesConfig = {
     scales: { x: { type: 'time' }, y: { domainZero: true }, color: { type: 'ordinal', range: ['#fddd62', '#ddd'] } },
     axes: { x: { tickNum: 4, tickFormat: '{M(x)}' }, y: { tickNum: 3, tickFormat: '{N(y)}' } },
-    tooltip: { visible: true, textFormat: '<div class="small">{T(new Date($x),"%H:%M:%S")}</div><div class="h3">{N($y, "0")}</div>' }
+    tooltip: { visible: true, textFormat: '<div class="h3">{N($y, "0")}</div>' }
   }
 
   //x = weex | y = answers
