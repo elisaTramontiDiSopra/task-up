@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
 import { UserService } from './user.service';
+import { TranslateService } from "@ngx-translate/core";
 //import { Observable } from 'rxjs';
 
 @Injectable()
@@ -11,7 +12,11 @@ export class FirebaseAuthService {
   public uid;
   public language;
 
-  constructor(public afAuth: AngularFireAuth, public userService: UserService) { }
+  constructor(
+    public afAuth: AngularFireAuth,
+    public userService: UserService,
+    public translateService: TranslateService
+    ) { }
 
   doGoogleLogin(){
     return new Promise<any>((resolve, reject) => {
@@ -22,8 +27,8 @@ export class FirebaseAuthService {
       .signInWithPopup(provider)
       .then(res => {
         resolve(res);
-        this.tokens = res["credentials"];
-        localStorage.setItem("credentials", this.tokens);
+        this.tokens = res["credential"];
+        localStorage.setItem("credential", this.tokens);
         this.uid = res["user"]["uid"];
         localStorage.setItem("uid", this.uid);
         //subscribe to the user, translate it into readable JSON and get the language
@@ -31,6 +36,7 @@ export class FirebaseAuthService {
           if (res.exists) {
             let doc = res.data();
             if (doc.language) {
+              this.translateService.use('i18n/'+doc.language);
               this.language = doc.language;
               localStorage.setItem("language", this.language);
             } else {
