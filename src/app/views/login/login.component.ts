@@ -1,6 +1,6 @@
 import { UserService } from './../../services/user.service';
 import { Component } from '@angular/core';
-import { AuthService, LoadingService } from 'app';
+import { LoadingService } from 'app';
 import { ToastrService } from 'ngx-toastr';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
@@ -66,8 +66,6 @@ export class LoginComponent {
         language: "en_EN",
         password: "password"
       }
-
-
       this.userService.createUser(user).then(()=> this.router.navigate(['/calendar']));
       //this.userCollection.doc(suc.user.uid).set(user).then(()=> this.navCtrl.setRoot('HomePage'));
 
