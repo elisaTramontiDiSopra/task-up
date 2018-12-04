@@ -1,59 +1,40 @@
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { ApiBaseUrl } from 'app';
-import { map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from "@angular/core";
 
 @Injectable()
 export class AuthService {
 
-  private uid;
-  private tokens;
+  constructor(
+  ) {
+  }
 
-  constructor(private http: HttpClient, private router: Router) {}
-
-  getOptions() {
+  /* getOptions() {
     let headers = new HttpHeaders();
     if (this.tokens.accessToken) {
-      headers = headers.append('Authorization', `Bearer: ${this.tokens.accessToken}`);
+      headers = headers.append(
+        "Authorization",
+        `Bearer: ${this.tokens.accessToken}`
+      );
     }
     return { headers };
-  }
+  } */
 
-  login(data) {
-    return this.http.post(`${ApiBaseUrl}/login`, data).pipe(map(res => {
-      console.log(res);
-      this.uid = res['user'].uid;
-      localStorage.setItem('uid', this.uid);
-      //grab and save token credentials
-      this.tokens = res['credentials'];
-      localStorage.setItem('credentials', this.tokens);
-    }));
-  }
-
-  logout() {
-    localStorage.removeItem('uid');
-  }
-
-  isAuthenticated() {
-    if(!this.uid) {
-      if(localStorage.getItem('uid')) {
-        return true
+  /* isAuthenticated() {
+    if (!this.uid) {
+      if (localStorage.getItem("uid")) {
+        return true;
       } else {
-        return false
+        return false;
       }
     } else {
-      return true
+      return true;
     }
-  }
+  } */
 
-  setAdminPassword() {
-    localStorage.setItem('admin', "true");
+  /* setAdminPassword() {
+    localStorage.setItem("admin", "true");
   }
 
   deleteAdminPassword() {
-    localStorage.setItem('admin', "false");
-  }
-
+    localStorage.setItem("admin", "false");
+  } */
 }

@@ -11,20 +11,26 @@ import { MomentModule } from 'angular2-moment';
 import { ToastrModule } from 'ngx-toastr';
 import { AppComponent } from './app.component';
 import { routing } from './app.routing';
-import { AuthService, AuthInterceptor, TranslationsUrl } from 'app';
+import { AuthService, TranslationsUrl } from 'app';
+//import { AuthInterceptor} from 'app';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 //TADABOARD REBOARD
 import { LinesCompleteChartModule } from 'reboard-angular/app/lines-complete-chart/lines-complete-chart.module';
-import WidgetDirective from 'tadaboard-bus/src/angular/widget-directive';
+//import WidgetDirective from 'tadaboard-bus/src/angular/widget-directive';
 
 //FIREBASE
-import { AngularFireModule } from 'angularfire2';
+//Import { AngularFireModule } from 'angularfire2'; OLD ONE
+//import { AngularFirestoreModule } from 'angularfire2/firestore';
+//import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireStorageModule } from '@angular/fire/storage';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+
 import { AngularFireDatabaseModule } from 'angularfire2/database';
-import { AngularFirestoreModule } from 'angularfire2/firestore';
-import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from './services/firebase-credentials';
 
 // GUARD
@@ -80,8 +86,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     ScheduleComponent,
     TaskBarComponent,
 
-    WidgetDirective,
-    //LinesCompleteChartComponent,
+    //WidgetDirective,
   ],
   imports: [
     BrowserModule,
@@ -109,14 +114,15 @@ export function HttpLoaderFactory(http: HttpClient) {
     LinesCompleteChartModule,
 
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule, // for database
-    AngularFirestoreModule,
-    AngularFireAuthModule
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule // imports firebase/storage only needed for storage features
+
   ],
   providers: [
     AuthService,
     LoadingService,
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+   // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     FirebaseAuthService,
     FireServiceProvider,
     UserService,

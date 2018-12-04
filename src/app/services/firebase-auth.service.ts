@@ -6,6 +6,7 @@ import * as firebase from 'firebase/app';
 
 @Injectable()
 export class FirebaseAuthService {
+  private tokens;
 
   constructor(public afAuth: AngularFireAuth) { }
 
@@ -18,6 +19,9 @@ export class FirebaseAuthService {
       .signInWithPopup(provider)
       .then(res => {
         resolve(res);
+        console.log(res);
+        this.tokens = res["credentials"];
+        localStorage.setItem("credentials", this.tokens);
       })
       .catch(err => {
         console.log("visualize an alert of error");

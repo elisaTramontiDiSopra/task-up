@@ -9,7 +9,7 @@ import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/fires
 import * as firebase from 'firebase/app';
 import { FirebaseAuthService } from '../../services/firebase-auth.service';
 import { AngularFireAuth } from 'angularfire2/auth';
-import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+//import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 @Component({
   templateUrl: './login.component.html',
@@ -23,14 +23,13 @@ export class LoginComponent {
   userObservableList: Observable<any[]>
   uid;
 
-  userRef: AngularFireList<any> = null;
+  //userRef: AngularFireList<any> = null;
 
   constructor(
     //private auth: AuthService,
-    private db: AngularFireDatabase,
-    public afAuth: FirebaseAuthService,
+    public afAuth: FirebaseAuthService, //my FB Service
     public auth: AngularFireAuth,
-    private afs: AngularFirestore,
+    //private afs: AngularFirestore,
     private loadingService: LoadingService,
     private toaster: ToastrService,
     private router: Router,
