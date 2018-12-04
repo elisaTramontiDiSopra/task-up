@@ -6,6 +6,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 const { AngularCompilerPlugin } = require('@ngtools/webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 module.exports = function (env) {
   return merge(baseConfig.call(this, env), {
@@ -76,9 +77,9 @@ module.exports = function (env) {
         tsConfigPath: 'tsconfig.json',
         sourceMap: env.sourcemap
       }),
-      /* new CopyWebpackPlugin([
+      new CopyWebpackPlugin([
         { from: root('src/public/i18n'), to: 'i18n' }
-      ]) */
+      ])
     ]
   })
 }
