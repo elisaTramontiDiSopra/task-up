@@ -2,13 +2,16 @@
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from 'angularfire2/auth';
 import * as firebase from 'firebase/app';
+import { UserService } from './user.service';
 //import { Observable } from 'rxjs';
 
 @Injectable()
 export class FirebaseAuthService {
-  private tokens;
+  public tokens;
+  public uid;
+  public language;
 
-  constructor(public afAuth: AngularFireAuth) { }
+  constructor(public afAuth: AngularFireAuth, public userService: UserService) { }
 
   doGoogleLogin(){
     return new Promise<any>((resolve, reject) => {
@@ -19,12 +22,29 @@ export class FirebaseAuthService {
       .signInWithPopup(provider)
       .then(res => {
         resolve(res);
-        console.log(res);
         this.tokens = res["credentials"];
         localStorage.setItem("credentials", this.tokens);
-      })
-      .catch(err => {
-        console.log("visualize an alert of error");
+        this.uid = res["user"]["uid"];
+        localStorage.setItem("uid", this.uid);
+        //subscribe to the user, translate it into readable JSON and get the language
+        this.userService.getUser(this.uid).subscribe(res => {
+          if (res.exists) {
+            let doc = res.data();
+            if (doc.language) {
+              this.language = doc.language;
+              localStorage.setItem("language", this.language);
+            } else {
+              this.language = "en_EN";
+              localStorage.setItem("language", this.language);
+            }
+          } else {
+            // doc.data() will be undefined in this case
+            console.log("Il documento non esiste");
+          }
+        })
+      }).catch(err => {
+        console.log("S'è scassato qualcosa con il login Google");
+        console.log(err);
       })
     })
   }

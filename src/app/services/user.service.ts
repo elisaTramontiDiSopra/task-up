@@ -1,11 +1,14 @@
 import { Injectable } from "@angular/core";
 import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
 import { ToastrService } from "ngx-toastr";
+import { Observable } from "rxjs";
+import { connectableObservableDescriptor } from "rxjs/internal/observable/ConnectableObservable";
 
 @Injectable()
 export class UserService {
   uid;
   userCollection: AngularFirestoreCollection;
+  language;
 
   constructor(private afs: AngularFirestore, private toaster: ToastrService) {
     this.userCollection = this.afs.collection('users');
@@ -23,7 +26,7 @@ export class UserService {
   }
 
   getUser(uid) {
-    return this.userCollection.doc(uid).get()
+    return this.userCollection.doc(uid).get();
   }
 
   deleteUser(uid) {
