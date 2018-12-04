@@ -21,13 +21,9 @@ export class FooterComponent {
   }
 
   enterAdminMode() {
-    //for some weird reason this.AdminPassword is not read within the subscribe afte get()
     let adminPw = this.adminPassword;
-    console.log(adminPw);
-    console.log(this.uid);
     this.userService.getUser(this.uid).subscribe(res => {
       if (res.exists) {
-        //console.log("Document data:", res.data());
         let doc = res.data();
         if (adminPw === doc.password) {
           this.passwordModal.hide();
@@ -35,23 +31,10 @@ export class FooterComponent {
         } else {
           this.showAlert = true;
         }
-
       } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");
       }
-
-      /* function(doc) {
-      let data = doc.data(); */
-      /* if (adminPw === data.password) {
-        //this.passwordModal.hide();
-        this.router.navigate(['/admin']);
-        console.log(data);
-        this.r
-      } else {
-        console.log("wrong");
-        this.showAlert = true;
-      } */
     });
   }
 

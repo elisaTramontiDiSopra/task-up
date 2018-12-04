@@ -1,11 +1,11 @@
 <footer id="main-footer" class="row justify-content-between align-items-center container-no-padding m-0">
-  <div class="col-4 text-center border-right" (click)="goTo('calendar')">{{'footer.calendar' | translate}}
+  <div class="col-4 text-center border-right pointer" (click)="goTo('calendar')">{{'footer.calendar' | translate}}
     <fa-icon class="ml-4" [icon]="['fas', 'calendar-alt']"></fa-icon>
   </div>
-  <div class="col-4 text-center border-right" (click)="goTo('calendar')">{{'footer.game' | translate}}
+  <div class="col-4 text-center border-right pointer" (click)="goTo('calendar')">{{'footer.game' | translate}}
     <fa-icon class="ml-4" [icon]="['fas', 'gamepad']"></fa-icon>
   </div>
-  <div class="col-4 text-center" (click)="passwordModal.show()">{{'footer.admin' | translate}}
+  <div class="col-4 text-center pointer" (click)="passwordModal.show()">{{'footer.admin' | translate}}
     <fa-icon class="ml-4" [icon]="['fas', 'user-cog']"></fa-icon>
   </div>
 </footer>
