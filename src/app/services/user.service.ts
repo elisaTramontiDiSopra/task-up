@@ -20,6 +20,8 @@ export class UserService {
   }
 
   updateUser(uid, key, value) {
+    //uid has "xxxxx" ""
+    uid = uid.slice(1,-1);
     return this.userCollection.doc(uid).update({
       [key]: value
     })
