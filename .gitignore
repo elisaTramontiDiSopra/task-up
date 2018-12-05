@@ -5,6 +5,7 @@
 
 # dependencies
 /node_modules
+/graphic
 
 # misc
 npm-debug.log
