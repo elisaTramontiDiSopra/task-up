@@ -44,6 +44,8 @@ import { CalendarComponent } from './views/calendar/calendar.component';
 import { AdminComponent } from './views/admin/admin.component';
 import { AdminEditComponent } from './views/admin/edit/admin-edit.component';
 import { AdminNewComponent } from './views/admin/new/admin-new.component';
+import { CharComponent } from './views/game/char/char.component';
+import { GameComponent } from './views/game/game/game.component';
 
 // C0MPONENTS
 import { HeaderComponent } from './components/header/header.component';
@@ -53,6 +55,7 @@ import { TreeStructureComponent } from './components/tree-structure/tree-structu
 import { AnimateComponent } from './components/animate/animate.component';
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { TaskBarComponent } from './components/task-bar/task-bar.component';
+import { HitMallComponent } from './components/hit-mall/hit-mall.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
@@ -85,6 +88,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AnimateComponent,
     ScheduleComponent,
     TaskBarComponent,
+    HitMallComponent,
 
     //WidgetDirective,
   ],

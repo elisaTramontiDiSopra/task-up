@@ -6,6 +6,8 @@ import { CalendarComponent } from './views\/calendar\/calendar.component';
 import { AdminComponent } from './views\/admin\/admin.component';
 import { AdminEditComponent } from './views\/admin\/edit\/admin-edit.component';
 import { AdminNewComponent } from './views\/admin\/new\/admin-new.component';
+import { GameComponent } from './views\/game\/game\/game.component';
+import { CharComponent } from './views\/game\/char\/admin-new.component';
 
 import { AuthGuardService } from './guards/auth.guard';
 
@@ -19,6 +21,8 @@ const routes: Routes = [
     { path: 'admin-edit', component: AdminEditComponent },
     { path: 'admin-new', component: AdminNewComponent },
     { path: 'calendar', component: CalendarComponent },
+    { path: 'game', component: GameComponent },
+    { path: 'character', component: CharComponent },
   ]},
   { path: '**', redirectTo: 'login' }
 ];
