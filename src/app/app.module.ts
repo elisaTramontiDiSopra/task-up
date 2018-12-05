@@ -80,6 +80,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdminComponent,
     AdminEditComponent,
     AdminNewComponent,
+    CharComponent,
+    GameComponent,
 
     HeaderComponent,
     FooterComponent,

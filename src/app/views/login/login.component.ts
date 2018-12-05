@@ -19,11 +19,14 @@ export class LoginComponent {
   user: any = {}
   isLoading: boolean;
 
+
   userCollection: AngularFirestoreCollection<any>;
   userObservableList: Observable<any[]>
   uid;
 
   //userRef: AngularFireList<any> = null;
+
+  tokens;
 
   constructor(
     //private auth: AuthService,
@@ -50,7 +53,7 @@ export class LoginComponent {
     .catch(err => {
       this.loadingService.stop();
       this.toaster.error(err);
-    });
+    }); 
   }
 
   googleRegistration() {
