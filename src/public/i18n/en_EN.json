@@ -54,6 +54,10 @@
     "game": "Game",
     "admin": "Admin Panel",
     "alertWrongPassword": "Wrong password. Ask the real admin for it!"
+  },
+  "screens": {
+    "victory": "You win!",
+    "failure": "Try harder yound wizard!"
   }
 
 

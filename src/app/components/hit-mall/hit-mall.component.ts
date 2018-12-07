@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { simpleFadeIn } from './../../utils/animations';
 import * as _ from "underscore";
 import { Observable } from '../../../../node_modules/rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
+import { ModalDirective } from 'ngx-bootstrap/modal';
 
 @Component({
   templateUrl: './hit-mall.component.html',
@@ -11,6 +12,7 @@ import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
   animations: [simpleFadeIn]
 })
 export class HitMallComponent {
+  @ViewChild('endModal') public endModal: ModalDirective;
 
   imageFolderName = "hit-mall";
   img00; img01; img02; img03; imgFoe;
@@ -28,7 +30,7 @@ export class HitMallComponent {
     { x: 45, y: 16, width: 12, layer: "layer01" },
     { x: 73, y: 14, width: 15, layer: "layer01" },
     { x: 1, y: 13, width: 14, layer: "layer01" },
-    { x: 26, y: 13, width: 18, layer: "layer03" }
+    { x: 26, y: 10, width: 18, layer: "layer03" }
   ];
 
 
@@ -44,14 +46,16 @@ export class HitMallComponent {
   foeIndex = new BehaviorSubject(this.foeCounter);
   timeOutToReset;
 
-  //points
+  //points and game result
   points = 0;
+  gameResult = null;
 
-  constructor() { }
+  constructor(private router: Router,) { }
 
   setTimingAndfoesNumber(level) {
     this.timing = 8000 / level;
     this.foesNumber = 2 * level;
+    console.log(this.foesNumber)
     //set invisible levels
     switch (level) {
       case 1:
@@ -69,33 +73,54 @@ export class HitMallComponent {
 
   setAssetsBasedOnLevel(level) {
     this.setTimingAndfoesNumber(level);
-    //randomly select an item from the foe array for foesNumber times 
-    //add its random order and make it not visible at first
-    for (let i = 0; i < this.foesNumber; i++) {
-      let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
-      randomElement["visible"] = false;
-      this.randomFoes.push(randomElement);
-    }
-    //set the first element visible
-    this.randomFoes[0].visible = true;
+    //randomly select an item from the foe array for foesNumber times
+    //and make it not visible at first
+    const randomFoeObservable = new Observable((observer) => {
+      for (let i = 0; i < this.foesNumber; i++) {
+        let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
+        randomElement["visible"] = false;
+        this.randomFoes.push(randomElement);
+      }
+      // observable execution
+      observer.next(this.randomFoes)
+      observer.complete()
+    });
+    randomFoeObservable.subscribe(() => {
+      //when the random array is ready make the first element visible and start the sequence
+      this.randomFoes[0].visible = true;
+      this.nextFoe(false);
+    });
   }
-
-  //turn this up here into ann observable
-  //when the randome foeas is done stop loading
 
   nextFoe(clickedValue) {
     //count the points only if the function is fired from a clic on the foe
-    if (clickedValue === true) {this.points++}
+    if (clickedValue === true) {this.points++};
     //reset the timeout timer
     clearTimeout(this.timeOutToReset);
     //hide previous monster and show the next
-    this.randomFoes[this.foeCounter].visible = false;
-    this.foeCounter++;
-    this.randomFoes[this.foeCounter].visible = true;
+    //if it's not the last element on the array, otherwise just stop
+    if (this.foeCounter < this.foesNumber - 1) {
 
-    this.foeIndex.next(this.foeCounter);
-    this.timeOutToReset = setTimeout(() => { this.nextFoe(false) }, this.timing);
-    if (this.foeCounter === this.foesNumber + 1) { this.foeIndex.complete() }
+      console.log(this.foeCounter);console.log(this.foesNumber);
+      this.randomFoes[this.foeCounter].visible = false;
+      this.foeCounter++;
+      this.randomFoes[this.foeCounter].visible = true;
+      console.log(this.randomFoes[this.foeCounter]);
+      this.foeIndex.next(this.foeCounter);
+      this.timeOutToReset = setTimeout(() => { this.nextFoe(false) }, this.timing);
+    } else if (this.foeCounter = this.foesNumber - 1) {
+      //if we're on the last element, stop and visualize the final screen based on the points
+      this.foeIndex.complete();
+      if (this.points >= (this.foesNumber/2)+1) {
+        this.gameResult = "won";
+        this.endModal.show();
+        setTimeout(() => {
+          this.router.navigate(['/game'])
+        }, 3000);
+      } else {
+        this.gameResult = "lost"
+      }
+    }
   }
 
   ngOnInit() {
@@ -111,9 +136,9 @@ export class HitMallComponent {
 
 
     //after 3 seconds make the first foe visible
-    setTimeout(() => {
+    /* setTimeout(() => {
       this.nextFoe(false)
-    }, 3000);
+    }, 3000); */
   }
 
 }
