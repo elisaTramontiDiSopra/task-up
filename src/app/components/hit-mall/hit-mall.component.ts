@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { simpleFadeIn } from './../../utils/animations';
 import * as _ from "underscore";
 import { Observable } from '../../../../node_modules/rxjs';
+import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 
 @Component({
   templateUrl: './hit-mall.component.html',
@@ -33,70 +34,68 @@ export class HitMallComponent {
 
   level = 4;
   timing = 2;
-  foesNumber;
-  randomFoes = [];
-  foeIndex = 0;
 
   layer01 = true; layer02 = true; //layer00 = bg, layer04 = ground
 
+  //var for handling foes appearing one after another trough the game
+  foesNumber;
+  randomFoes = [];
+  private foeCounter = 0;
+  foeIndex = new BehaviorSubject(this.foeCounter);
+  timeOutToReset;
+
+  //points
+  points = 0;
+
   constructor() { }
 
-
-  setAssetsBasedOnLevel(level) {
-
-    var promise = new Promise((resolve, reject) => {
-      setTimeout(() => {
-        console.log("Async Work Complete");
-        if (false) {
-          reject();
-        } else {
-          resolve();
-        }
-      }, 1000);
-    });
-    return promise;
-
-
+  setTimingAndfoesNumber(level) {
+    this.timing = 8000 / level;
+    this.foesNumber = 2 * level;
+    //set invisible levels
     switch (level) {
-      case 4:
-        //set invisible levels
-        //this.layer01 = false;
-        //this.layer02 = false;
-        //set timing and number of foes
-        this.timing = 10000 / level;
-        this.foesNumber = 2 * level;
-        //randomly select an item from the foe array for foesNumber times 
-        //add its random order and make it not visible at first
-        for (let i = 0; i < this.foesNumber; i++) {
-          let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
-          randomElement["order"] = i;
-          randomElement["visible"] = false;
-          this.randomFoes.push(randomElement);
-        }
-        return this.randomFoes
-        //divide the random selected elements based on their layer 
-        //this.randomFoes = _.groupBy(this.randomFoes, foe => foe.layer);
-        console.log(this.randomFoes);
-        //set the first element visible
-        this.randomFoes[0].visible = true;
-        break;
+      case 1:
+        this.layer01 = false;
+        this.layer02 = false;
       case 2:
-        //set invisible levels
-        this.layer01 = false; this.layer02 = false;
-        break;
+        this.layer01 = true;
+        this.layer02 = false;
+      case 3:
+        this.layer01 = true;
+        this.layer02 = true;
     }
   }
 
-  nextFoe(order) {
-    //move to the next foe
-    this.randomFoes[order].visible = false;
-    order++;
-    this.randomFoes[order].visible = true;
-    
-    //then wait for timing and go to the next foe
-    setTimeout(function() {
-      this.nextFoe(order);
-    }, 2000);
+
+  setAssetsBasedOnLevel(level) {
+    this.setTimingAndfoesNumber(level);
+    //randomly select an item from the foe array for foesNumber times 
+    //add its random order and make it not visible at first
+    for (let i = 0; i < this.foesNumber; i++) {
+      let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
+      randomElement["visible"] = false;
+      this.randomFoes.push(randomElement);
+    }
+    //set the first element visible
+    this.randomFoes[0].visible = true;
+  }
+
+  //turn this up here into ann observable
+  //when the randome foeas is done stop loading
+
+  nextFoe(clickedValue) {
+    //count the points only if the function is fired from a clic on the foe
+    if (clickedValue === true) {this.points++}
+    //reset the timeout timer
+    clearTimeout(this.timeOutToReset);
+    //hide previous monster and show the next
+    this.randomFoes[this.foeCounter].visible = false;
+    this.foeCounter++;
+    this.randomFoes[this.foeCounter].visible = true;
+
+    this.foeIndex.next(this.foeCounter);
+    this.timeOutToReset = setTimeout(() => { this.nextFoe(false) }, this.timing);
+    if (this.foeCounter === this.foesNumber + 1) { this.foeIndex.complete() }
   }
 
   ngOnInit() {
@@ -110,11 +109,11 @@ export class HitMallComponent {
     //set layers visibility
     this.setAssetsBasedOnLevel(this.level);
 
+
     //after 3 seconds make the first foe visible
-    /* setTimeout(function() {
-      console.log(this.randomFoes);
-      this.randomFoes[0].visible = true;
-    }, 3000); */
+    setTimeout(() => {
+      this.nextFoe(false)
+    }, 3000);
   }
 
 }

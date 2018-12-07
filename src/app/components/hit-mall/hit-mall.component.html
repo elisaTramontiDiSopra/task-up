@@ -2,7 +2,7 @@
   <div class="layer w-100">
     <img [src]=img00 class="bg" />
     <div *ngFor="let foe of randomFoes">    
-    <img *ngIf="foe.visible === true && foe.layer === 'layer00'" (click)="nextFoe(foe.order)" class="foe" [src]="imgFoe" 
+    <img *ngIf="foe.visible === true && foe.layer === 'layer00'" (click)="nextFoe(true)" class="foe" [src]="imgFoe" 
       [style.left]="foe.x + '%'" [style.bottom]="foe.y + '%'"
       [style.width]="foe.width + '%'" />
     </div>
@@ -10,7 +10,7 @@
   <div *ngIf="layer01 === true" class="layer w-100">
     <img [src]=img01 class="bg" />
     <div *ngFor="let foe of randomFoes">
-    <img *ngIf="foe.visible === true && foe.layer === 'layer01'" (click)="nextFoe(foe.order)"  class="foe" [src]="imgFoe" 
+    <img *ngIf="foe.visible === true && foe.layer === 'layer01'" (click)="nextFoe(true)"  class="foe" [src]="imgFoe" 
       [style.left]="foe.x + '%'" [style.bottom]="foe.y + '%'"
       [style.width]="foe.width + '%'" />
     </div>
@@ -18,7 +18,7 @@
   <div *ngIf="layer02 === true" class="layer w-100">
     <img [src]=img02 class="bg" />
     <div *ngFor="let foe of randomFoes">
-      <img *ngIf="foe.visible === true && foe.layer === 'layer03'" (click)="nextFoe(foe.order)" class="foe" [src]="imgFoe" 
+      <img *ngIf="foe.visible === true && foe.layer === 'layer03'" (click)="nextFoe(true)" class="foe" [src]="imgFoe" 
       [style.left]="foe.x + '%'" [style.bottom]="foe.y + '%'"
       [style.width]="foe.width + '%'" /> 
     </div>
@@ -26,9 +26,10 @@
   <div class="layer w-100">
     <img [src]=img03 class="bg" />
     <div *ngFor="let foe of randomFoes">
-    <img *ngIf="foe.visible === true && foe.layer === 'layer03'" (click)="nextFoe(foe.order)" class="foe" [src]="imgFoe" 
+    <img *ngIf="foe.visible === true && foe.layer === 'layer03'" (click)="nextFoe(true)" class="foe" [src]="imgFoe" 
       [style.left]="foe.x + '%'" [style.bottom]="foe.y + '%'"
       [style.width]="foe.width + '%'" />
     </div>
   </div>
+  <div class="points">{{'general.points' | translate}} {{points}}</div>
 </div>

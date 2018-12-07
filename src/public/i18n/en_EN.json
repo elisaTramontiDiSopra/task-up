@@ -46,7 +46,8 @@
     "sat": "Sat",
     "sun": "Sun",
     "save": "Save",
-    "saveAll": "Save all"
+    "saveAll": "Save all",
+    "points": "Points"
   },
   "footer": {
     "calendar": "Calendar",
