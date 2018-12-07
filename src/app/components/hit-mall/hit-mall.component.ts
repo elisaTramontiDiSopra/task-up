@@ -1,9 +1,10 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, Input, ViewChild } from '@angular/core';
 import { simpleFadeIn } from './../../utils/animations';
 import * as _ from "underscore";
 import { Observable } from '../../../../node_modules/rxjs';
 import { BehaviorSubject } from 'rxjs/internal/BehaviorSubject';
 import { ModalDirective } from 'ngx-bootstrap/modal';
+import { Router } from '@angular/router';
 
 @Component({
   templateUrl: './hit-mall.component.html',
@@ -12,9 +13,11 @@ import { ModalDirective } from 'ngx-bootstrap/modal';
   animations: [simpleFadeIn]
 })
 export class HitMallComponent {
+  @Input() imageFolderName;
+  @Input() images;
   @ViewChild('endModal') public endModal: ModalDirective;
 
-  imageFolderName = "hit-mall";
+  //imageFolderName = "hit-mall";
   img00; img01; img02; img03; imgFoe;
 
   //foe positions, measured from bottom left, (x,y)
