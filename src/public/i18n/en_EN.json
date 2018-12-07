@@ -1,6 +1,9 @@
 {
   "admin": {
     "welcome": "Welcome",
+    "manage": "Manage the tasks",
+    "newTask": "Add a new task",
+    "manageSchedule": "Manage the weekly schedule",
     "message": "Questa è.",
     "yourSettings": "Your settings",
     "wannaChangePassword": "Want to change password?",
@@ -11,7 +14,7 @@
     "change": "Change",
     "italian": "Italiano",
     "english": "Inglese",
-    "lineChartText": "Assigned tasks / Done tasks",
+    "lineChartText": "Overview",
     "legendAssigned": "Assigned tasks",
     "legendDone": "Done tasks"
 
