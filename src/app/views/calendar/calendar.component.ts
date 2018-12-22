@@ -126,4 +126,9 @@ export class CalendarComponent {
       }
     });
   }
+
+  selectDay(day) {
+    this.today = day;
+    this.data = this.weekData[this.today];
+  }
 }
