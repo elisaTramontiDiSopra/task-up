@@ -1,4 +1,14 @@
-<div class="container">
-  <tree-structure [steps]="data" [day]="today" [parentTask]="" [direction]="'horiz'"></tree-structure>
-  <!-- <tree-structure [data]="data" [day]="today" [direction]="'horiz'"></tree-structure> -->
+<div class="h-100 row no-gutters">
+  <div class="page-centered">
+    <div class="row no-gutters my-3 week-menu">
+      <div class="col d-flex align-items-center justify-content-center" [class.mon-active]="today === 'mon'" (click)="today = 'mon'">{{'general.mon' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.tue-active]="today === 'tue'" (click)="today = 'tue'">{{'general.tue' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.wed-active]="today === 'wed'" (click)="today = 'wed'">{{'general.wed' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.thu-active]="today === 'thu'" (click)="today = 'thu'">{{'general.thu' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.fri-active]="today === 'fri'" (click)="today = 'fri'">{{'general.fri' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.sat-active]="today === 'sat'" (click)="today = 'sat'">{{'general.sat' | translate}}</div>
+      <div class="col d-flex align-items-center justify-content-center" [class.sun-active]="today === 'sun'" (click)="today = 'sun'">{{'general.sun' | translate}}</div>
+    </div>
+    <tree-structure [steps]="data" [day]="today" [parentTask]="" [direction]="'horiz'"></tree-structure>
+  </div>
 </div>

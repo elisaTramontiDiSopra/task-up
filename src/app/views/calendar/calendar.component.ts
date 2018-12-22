@@ -6,6 +6,7 @@ import { Component, ViewChild } from "@angular/core";
 })
 export class CalendarComponent {
   today = "mon";
+  week = ['mon','tue','wed','thu','fri','sat','sun'];
   data = [
     {
       name: "School",
@@ -74,5 +75,33 @@ export class CalendarComponent {
     }
   ];
 
-  constructor() {}
+  constructor() { }
+  ngOnInit() {
+    //get today value and visualize the calendar accordingly
+    let todayDate = new Date();
+    console.log(todayDate.getDay());
+    switch (todayDate.getDay()) {
+      case 0:
+        this.today = 'sun';
+        break;
+      case 1:
+        this.today = 'mon';
+        break
+      case 2:
+        this.today = 'tue';
+        break
+      case 3:
+        this.today = 'wed';
+        break
+      case 4:
+        this.today = 'thu';
+        break
+      case 5:
+        this.today = 'fri';
+        break
+      case 6:
+        this.today = 'sat';
+        break;
+    }
+  }
 }
