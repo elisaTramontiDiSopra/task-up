@@ -1,4 +1,5 @@
 import { Component, ViewChild } from "@angular/core";
+import { FireServiceProvider } from "../../services/firebase.service";
 
 @Component({
   templateUrl: "./calendar.component.html",
@@ -6,7 +7,7 @@ import { Component, ViewChild } from "@angular/core";
 })
 export class CalendarComponent {
   today = "mon";
-  week = ['mon','tue','wed','thu','fri','sat','sun'];
+  weekData;
   data = [
     {
       name: "School",
@@ -75,11 +76,22 @@ export class CalendarComponent {
     }
   ];
 
-  constructor() { }
+  constructor(private apiFirebase: FireServiceProvider) {
+
+  }
   ngOnInit() {
     //get today value and visualize the calendar accordingly
     let todayDate = new Date();
-    console.log(todayDate.getDay());
+    /* this.apiFirebase.getSchedule().subscribe(doc => {
+      if (doc.exists) {
+        this.data = doc.data();
+        console.log(this.data)
+        //console.log("Document data:", doc.data());
+      } else {
+        console.log("C'è qualcosa che non va con l'uid nel recupero della schedule");
+      }
+    }); */
+
     switch (todayDate.getDay()) {
       case 0:
         this.today = 'sun';
@@ -102,6 +114,16 @@ export class CalendarComponent {
       case 6:
         this.today = 'sat';
         break;
-    }
+    };
+    this.apiFirebase.getSchedule().subscribe(res => {
+      if (res.exists) {
+        this.weekData = res.data();
+        this.data = this.weekData[this.today];
+        console.log(this.weekData);
+        console.log(this.today);
+      } else {
+        console.log("No such document!");
+      }
+    });
   }
 }
