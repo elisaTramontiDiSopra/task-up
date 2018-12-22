@@ -60,6 +60,7 @@ import { OverlayScreensComponent } from './components/screens-overlay/screens-ov
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
+import { TimingService } from './services/timing.service';
 import { FirebaseAuthService } from './services/firebase-auth.service';
 
 import { FireServiceProvider } from './services/firebase.service';
@@ -130,6 +131,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [
     AuthService,
     LoadingService,
+    TimingService,
    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
     FirebaseAuthService,
     FireServiceProvider,
