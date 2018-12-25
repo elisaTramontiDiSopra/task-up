@@ -3,6 +3,10 @@
 $taskWidth: 100px
 $buttonWidth: 30px
 
+.overflow-scroll .no-gutters //tree container
+  height: 520px
+  width: 110px
+
 .mon
   border-color: $monColor
 .tue
@@ -64,10 +68,10 @@ $buttonWidth: 30px
     background-color: #fff
     opacity: .5
     margin: 6px auto
-.horizonta-line
+.horizontal-line-container
+  height: $taskWidth
+  .horizontal-line
     width: 25px
-    height: 2px
-    margin: auto
+    height: 1px
     background-color: #fff
     opacity: .5
-    margin: auto 6px

@@ -1,5 +1,5 @@
-<div class="h-100 row no-gutters">
-  <div class="page-centered">
+<div class="h-100 row no-gutters m-4 flex-column">
+ <!--  <div class="page-centered"> -->
     <div class="row no-gutters my-3 week-menu">
       <div class="col d-flex align-items-center justify-content-center" [class.mon-active]="today === 'mon'" (click)="selectDay('mon')">{{'general.mon' | translate}}</div>
       <div class="col d-flex align-items-center justify-content-center" [class.tue-active]="today === 'tue'" (click)="selectDay('tue')">{{'general.tue' | translate}}</div>
@@ -10,5 +10,5 @@
       <div class="col d-flex align-items-center justify-content-center" [class.sun-active]="today === 'sun'" (click)="selectDay('sun')">{{'general.sun' | translate}}</div>
     </div>
     <tree-structure [steps]="data" [day]="today" [parentTask]="" [direction]="'horiz'"></tree-structure>
-  </div>
+<!--   </div> -->
 </div>

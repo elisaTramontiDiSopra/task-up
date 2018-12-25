@@ -118,9 +118,7 @@ export class CalendarComponent {
     this.apiFirebase.getSchedule().subscribe(res => {
       if (res.exists) {
         this.weekData = res.data();
-        this.data = this.weekData[this.today];
-        console.log(this.weekData);
-        console.log(this.today);
+        //this.data = this.weekData[this.today];
       } else {
         console.log("No such document!");
       }
