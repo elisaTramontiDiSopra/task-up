@@ -18,15 +18,7 @@ export class HitMallComponent {
   @ViewChild('endModal') public endModal: ModalDirective;
 
   //imageFolderName = "hit-mall";
-  img00; img01; img02; img03; imgFoe;
-
-  //foe positions, measured from bottom left, (x,y)
-  /* foes = {
-    layer00: [{x: 38, y:36, width: 8, layer: "layer00" }], //over layer0
-    layer01: [{x: 45, y:16, width: 12, layer: "layer01"}, {x: 73, y:14, width: 15, layer: "layer01"}, {x: 1, y:13, width: 14, layer: "layer01"}], //over layer01
-    //layer02: [{x: 13, y:13, width: 14}], //over layer02
-    layer03: [{x: 26, y:13, width: 18, layer: "layer03"}], //over layer03
-  }; */
+  img00; img01; img02; img03; imgFoe; puffGif;
 
   foes = [
     { x: 38, y: 36, width: 8, layer: "layer00" },
@@ -53,7 +45,7 @@ export class HitMallComponent {
   points = 0;
   gameResult = null;
 
-  constructor(private router: Router,) { }
+  constructor(private router: Router, ) { }
 
   setTimingAndfoesNumber(level) {
     this.timing = 8000 / level;
@@ -82,7 +74,16 @@ export class HitMallComponent {
       for (let i = 0; i < this.foesNumber; i++) {
         let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
         randomElement["visible"] = false;
+        randomElement["puffVisible"] = false;
         this.randomFoes.push(randomElement);
+        //make sure is not like the last one selected
+        /* if (this.randomFoes.length > 1 && randomElement.x !== this.randomFoes[this.randomFoes.length - 1].x) {
+          randomElement["visible"] = false;
+          randomElement["puffVisible"] = false;
+          this.randomFoes.push(randomElement);
+        } else {
+          let randomElement = this.foes[Math.floor(Math.random() * this.foes.length)];
+        } */
       }
       // observable execution
       observer.next(this.randomFoes)
@@ -97,24 +98,22 @@ export class HitMallComponent {
 
   nextFoe(clickedValue) {
     //count the points only if the function is fired from a clic on the foe
-    if (clickedValue === true) {this.points++};
+    if (clickedValue === true) { this.points++ };
+
     //reset the timeout timer
     clearTimeout(this.timeOutToReset);
     //hide previous monster and show the next
     //if it's not the last element on the array, otherwise just stop
     if (this.foeCounter < this.foesNumber - 1) {
-
-      console.log(this.foeCounter);console.log(this.foesNumber);
       this.randomFoes[this.foeCounter].visible = false;
       this.foeCounter++;
       this.randomFoes[this.foeCounter].visible = true;
-      console.log(this.randomFoes[this.foeCounter]);
       this.foeIndex.next(this.foeCounter);
       this.timeOutToReset = setTimeout(() => { this.nextFoe(false) }, this.timing);
     } else if (this.foeCounter = this.foesNumber - 1) {
       //if we're on the last element, stop and visualize the final screen based on the points
       this.foeIndex.complete();
-      if (this.points >= (this.foesNumber/2)+1) {
+      if (this.points >= (this.foesNumber / 2) + 1) {
         this.gameResult = "won";
         this.endModal.show();
         setTimeout(() => {
@@ -125,6 +124,17 @@ export class HitMallComponent {
       }
     }
   }
+  visulizePuff(foe) {
+    foe.visible = false;
+    foe.puffVisible = !foe.puffVisible;
+    console.log(foe.puffVisible);
+    console.log(foe.visible);
+    setTimeout(() => {
+      foe.puffVisible = false;
+      foe.visible = false;
+      this.nextFoe(true);
+    }, 500);
+  }
 
   ngOnInit() {
     //set the images bg
@@ -133,6 +143,7 @@ export class HitMallComponent {
     this.img02 = "/images/" + this.imageFolderName + "/02_layer.png";
     this.img03 = "/images/" + this.imageFolderName + "/03_layer.png";
     this.imgFoe = "/images/" + this.imageFolderName + "/foe.png";
+    this.puffGif = "/images/" + this.imageFolderName + "/foePuff.gif"
 
     //set layers visibility
     this.setAssetsBasedOnLevel(this.level);
