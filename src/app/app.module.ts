@@ -14,8 +14,9 @@ import { routing } from './app.routing';
 import { AuthService, TranslationsUrl } from 'app';
 //import { AuthInterceptor} from 'app';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 //TADABOARD REBOARD
 import { LinesCompleteChartModule } from 'reboard-angular/app/lines-complete-chart/lines-complete-chart.module';
@@ -119,6 +120,7 @@ export function HttpLoaderFactory(http: HttpClient) {
       }
     }),
     FontAwesomeModule,
+    NgxSpinnerModule,
 
     LinesCompleteChartModule,
 

@@ -73,6 +73,7 @@
     "jquery": "^3.3.1",
     "ng-animate": "^0.3.4",
     "ngx-bootstrap": "^3.0.0",
+    "ngx-spinner": "^6.1.2",
     "ngx-toastr": "^9.1.0",
     "popper.js": "^1.14.3",
     "reboard-angular": "git+ssh://git@github.com/visup/reboard-angular.git#22f297b",
