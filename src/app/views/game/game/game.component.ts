@@ -5,6 +5,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./game.component.sass']
 })
 export class GameComponent {
+  public startGame = false;
+
   goblinFoes = [
     { x: 38, y: 36, width: 8, layer: "layer00" },
     { x: 45, y: 16, width: 12, layer: "layer01" },
@@ -17,6 +19,13 @@ export class GameComponent {
   images = this.goblinFoes;
 
   constructor() {}
+
+  checkCountdown(event) {
+    console.log(event);
+    if (event === true) {
+      this.startGame = true;
+    }
+  }
 
   ngOnInit() {}
 }

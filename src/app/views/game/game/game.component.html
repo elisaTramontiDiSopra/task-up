@@ -1,3 +1,4 @@
 <div>
-  <hit-mall [imageFolderName]="imageFolderName" [images]="images"></hit-mall>
+  <countdown seconds="5" (completed)="checkCountdown($event)"></countdown>
+  <hit-mall *ngIf="startGame === true"  [imageFolderName]="imageFolderName" [images]="images"></hit-mall>
 </div>
