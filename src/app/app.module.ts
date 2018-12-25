@@ -58,6 +58,7 @@ import { ScheduleComponent } from './components/schedule/schedule.component';
 import { TaskBarComponent } from './components/task-bar/task-bar.component';
 import { HitMallComponent } from './components/hit-mall/hit-mall.component';
 import { OverlayScreensComponent } from './components/screens-overlay/screens-overlay.component';
+import { CountdownComponent } from './components/countdown/countdown.component';
 
 // SERVICES
 import { LoadingService } from './services/loading.service';
@@ -95,6 +96,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     TaskBarComponent,
     HitMallComponent,
     OverlayScreensComponent,
+    CountdownComponent,
 
     //WidgetDirective,
   ],
