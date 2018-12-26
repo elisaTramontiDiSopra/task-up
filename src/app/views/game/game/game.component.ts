@@ -15,13 +15,12 @@ export class GameComponent {
     { x: 26, y: 10, width: 18, layer: "layer03" }
   ];
 
-  imageFolderName  ="hit-mall";
+  imageFolderName  = "hit-mall";
   images = this.goblinFoes;
 
   constructor() {}
 
   checkCountdown(event) {
-    console.log(event);
     if (event === true) {
       this.startGame = true;
     }
