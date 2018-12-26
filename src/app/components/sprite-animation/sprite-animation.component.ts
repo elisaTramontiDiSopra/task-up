@@ -1,10 +1,11 @@
 import { Component, Input } from "@angular/core";
+import { url } from "inspector";
 
 
 @Component({
-  selector: "schedule",
-  templateUrl: "./schedule.component.html",
-  styleUrls: ["./schedule.component.sass"],
+  selector: "sprite-animation",
+  templateUrl: "./sprite-animation.component.html",
+  styleUrls: ["./sprite-animation.component.sass"],
 })
 export class SpriteAnimation {
   @Input() image;
@@ -39,11 +40,12 @@ export class SpriteAnimation {
   }
 
   ngOnInit() { 
+    //this.image="images/hit-mall/puffAnimation.png";
+    console.log(this.image);
     //set the basics features for the sprite div
-    document.getElementById("sprite").style.width = this.singleImageWidth;
-    document.getElementById("sprite").style.height = this.singleImageHeight;
+    document.getElementById("sprite").style.width = this.singleImageWidth + "px";
+    document.getElementById("sprite").style.height = this.singleImageHeight + "px";
     document.getElementById("sprite").style.backgroundImage = this.image;
-    document.getElementById("sprite").style.height = this.singleImageHeight;
     switch (this.type) {
       case "fadeSprite":
       this.fadeSpriteAnimation();
