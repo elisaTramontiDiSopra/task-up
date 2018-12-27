@@ -43,7 +43,7 @@ export class SpriteAnimation {
   }
 
   fadeOutAnimation() {
-    let timingOfLastFrame = (this.frameDuration/1000)*3;
+    let timingOfLastFrame = (this.frameDuration/1000)*5;
     console.log(timingOfLastFrame);
     this.lastFrame = true;
     document.getElementById("sprite").style.webkitTransition = "opacity " + timingOfLastFrame + "s";
