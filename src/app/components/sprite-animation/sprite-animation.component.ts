@@ -1,5 +1,6 @@
-import { Component, Input } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { url } from "inspector";
+import { Observable } from "../../../../node_modules/rxjs";
 
 
 @Component({
@@ -15,40 +16,57 @@ export class SpriteAnimation {
   @Input() frameDuration; //in milliseconds
   @Input() numberOfFrames;
   @Input() type; //fadeSprite
+  @Output() completed = new EventEmitter<boolean>();
 
-  position;
+  position = 0;
   currentFrame = 0;
-
+  lastFrame = false //needed to fade out the last frame
   constructor() { }
 
   //animation where the frames fade one into the other
   fadeSpriteAnimation() {
-    if (this.position < this.totalImageWidth) {
-      this.position = this.position + this.singleImageWidth;
-    } else (this.position = 0);
-    this.animateSprite();
-  }
-
-  animateSprite() {
-    if (this.currentFrame < this.numberOfFrames) {
+    console.log(this.currentFrame );
+    if (this.currentFrame <= this.numberOfFrames) {
       document.getElementById("sprite").style.backgroundPosition = this.position + 'px 0px';
       setTimeout(() => {
         this.currentFrame++;
-        this.animateSprite()
+        this.fadeSpriteAnimation();
+        this.position = this.position - this.singleImageWidth;
       }, this.frameDuration);
-    }
+    } else {
+      console.log("last frame");
+      this.fadeOutAnimation();
+      /* this.currentFrame = 0;
+      this.position = this.totalImageWidth;
+      this.completed.emit(true); */
+    };
   }
 
-  ngOnInit() { 
-    //this.image="images/hit-mall/puffAnimation.png";
-    console.log(this.image);
+  fadeOutAnimation() {
+    let timingOfLastFrame = (this.frameDuration/1000)*3;
+    console.log(timingOfLastFrame);
+    this.lastFrame = true;
+    document.getElementById("sprite").style.webkitTransition = "opacity " + timingOfLastFrame + "s";
+    document.getElementById("sprite").style.transition = "opacity " + timingOfLastFrame + "s"; 
+    //wait the time of the last frame, then reset everything
+    setTimeout(() => {
+      this.currentFrame++;
+      this.position = this.position - this.singleImageWidth;
+      this.lastFrame = false;
+      this.completed.emit(true); //say the animation is over
+    }, 5000);
+  }
+
+  ngOnInit() {
+    this.completed.emit(false); //the animation is not done yet, so completed = false
     //set the basics features for the sprite div
+    this.position = this.totalImageWidth;
     document.getElementById("sprite").style.width = this.singleImageWidth + "px";
     document.getElementById("sprite").style.height = this.singleImageHeight + "px";
-    document.getElementById("sprite").style.backgroundImage = this.image;
+    document.getElementById("sprite").style.backgroundImage = 'url(' + this.image + ')';
     switch (this.type) {
       case "fadeSprite":
-      this.fadeSpriteAnimation();
+        this.fadeSpriteAnimation();
     }
   }
 
